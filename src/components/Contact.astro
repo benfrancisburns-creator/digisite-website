@@ -1,0 +1,393 @@
+---
+// Contact.astro — DS-11
+
+const schemes = [
+  { id: 'construction', label: 'Construction & Development', color: 'cyan' },
+  { id: 'landlords', label: 'Landlords & Landowners', color: 'amber' },
+  { id: 'commercial', label: 'Commercial & Public', color: 'cyan' },
+  { id: 'events', label: 'Events', color: 'amber' },
+  { id: 'investment', label: 'Investment', color: 'amber' },
+];
+---
+
+<section id="contact" class="relative bg-navy">
+  <div class="rule-cyan"></div>
+
+  <div class="max-w-content mx-auto px-6 md:px-12 py-20 md:py-[120px]">
+    <div class="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-12 lg:gap-16">
+
+      <!-- Left column -->
+      <div class="reveal">
+        <p class="font-mono font-semibold text-[18px] text-cyan uppercase tracking-[0.2em] mb-4">GET IN TOUCH</p>
+        <h2 class="font-grotesk font-bold text-off-white mb-6" style="font-size: clamp(36px, 5vw, 52px); letter-spacing: -0.02em; line-height: 1.0;">
+          Start the conversation.
+        </h2>
+        <p class="font-grotesk text-mid-grey text-[16px] mb-8" style="line-height: 1.7; max-width: 380px;">
+          Whether you're a scaffold company with a site pipeline, a landowner with an underperforming asset, a commercial estate looking to generate income, an event organiser, or an investor &mdash; select your route below and tell us about your situation.
+        </p>
+        <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.12em] text-cyan">
+          &rarr; We respond to every enquiry within 48 hours.
+        </p>
+      </div>
+
+      <!-- Right column — Form -->
+      <div class="reveal" aria-live="polite">
+        <div id="contact-form-container" class="bg-section border border-cyan/[0.12] rounded-lg p-6 md:p-12">
+          <form
+            name="digisite-contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            id="contact-form"
+          >
+            <input type="hidden" name="form-name" value="digisite-contact" />
+            <input type="hidden" name="bot-field" class="hidden" />
+            <input type="hidden" name="scheme" id="scheme-value" value="" />
+
+            <!-- Scheme selector -->
+            <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-mid-grey mb-3">I am a...</p>
+            <div class="flex flex-wrap gap-2 mb-8">
+              {schemes.map(scheme => (
+                <button
+                  type="button"
+                  class="scheme-btn px-4 py-2.5 rounded border border-cyan/[0.15] bg-cyan/[0.04] font-grotesk font-medium text-[13px] text-mid-grey transition-all duration-200 hover:border-cyan/30"
+                  data-scheme={scheme.id}
+                  data-color={scheme.color}
+                >
+                  {scheme.label}
+                </button>
+              ))}
+            </div>
+
+            <!-- Universal fields -->
+            <div class="space-y-5 mb-6">
+              <div>
+                <label for="name" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">YOUR NAME</label>
+                <input type="text" name="name" id="name" required placeholder="First and last name"
+                  class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] placeholder:text-mid-grey/50 focus:border-cyan focus:outline-none focus:ring-[3px] focus:ring-cyan/[0.08] transition-all duration-200" />
+              </div>
+              <div>
+                <label for="email" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">EMAIL ADDRESS</label>
+                <input type="email" name="email" id="email" required placeholder="name@company.com"
+                  class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] placeholder:text-mid-grey/50 focus:border-cyan focus:outline-none focus:ring-[3px] focus:ring-cyan/[0.08] transition-all duration-200" />
+              </div>
+              <div>
+                <label for="company" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">COMPANY OR ORGANISATION</label>
+                <input type="text" name="company" id="company" required placeholder="Your company name"
+                  class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] placeholder:text-mid-grey/50 focus:border-cyan focus:outline-none focus:ring-[3px] focus:ring-cyan/[0.08] transition-all duration-200" />
+              </div>
+            </div>
+
+            <!-- Conditional: Construction -->
+            <div class="conditional-fields hidden space-y-5 mb-6" data-scheme="construction">
+              <div>
+                <label for="role" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">YOUR ROLE</label>
+                <select name="role" id="role" class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] focus:border-cyan focus:outline-none transition-all duration-200">
+                  <option value="">Select...</option>
+                  <option>Scaffold Company</option>
+                  <option>Principal Contractor</option>
+                  <option>Building Company</option>
+                  <option>Developer</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">WHERE ARE YOUR ACTIVE SITES?</label>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                  {['Liverpool', 'Manchester', 'Leeds', 'Sheffield', 'Birmingham', 'London', 'Other UK'].map(city => (
+                    <label class="flex items-center gap-2 cursor-pointer">
+                      <input type="checkbox" name="geography" value={city} class="w-4 h-4 rounded border-cyan/20 bg-transparent text-cyan focus:ring-cyan/20" />
+                      <span class="font-grotesk text-[14px] text-mid-grey">{city}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <label for="site-count" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">APPROXIMATE NUMBER OF ACTIVE SITES</label>
+                <select name="site-count" id="site-count" class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] focus:border-cyan focus:outline-none transition-all duration-200">
+                  <option value="">Select...</option>
+                  <option>1–4</option>
+                  <option>5–9</option>
+                  <option>10–19</option>
+                  <option>20+</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div>
+                <label for="message-construction" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">ANYTHING ELSE YOU'D LIKE TO TELL US</label>
+                <textarea name="message" id="message-construction" rows="4" placeholder="Tell us about your pipeline, your typical sites, or any specific questions"
+                  class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] placeholder:text-mid-grey/50 focus:border-cyan focus:outline-none transition-all duration-200 resize-none"></textarea>
+              </div>
+            </div>
+
+            <!-- Conditional: Landlords -->
+            <div class="conditional-fields hidden space-y-5 mb-6" data-scheme="landlords">
+              <div>
+                <label for="site-type" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">WHAT IS YOUR SITE?</label>
+                <select name="site-type" id="site-type" class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] focus:border-cyan focus:outline-none transition-all duration-200">
+                  <option value="">Select...</option>
+                  <option>Vacant plot</option>
+                  <option>Empty building</option>
+                  <option>Site in planning</option>
+                  <option>Heritage / listed building</option>
+                  <option>Under development</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="site-location" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">SITE LOCATION</label>
+                <input type="text" name="site-location" id="site-location" placeholder="Town or city, postcode if known"
+                  class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] placeholder:text-mid-grey/50 focus:border-cyan focus:outline-none transition-all duration-200" />
+              </div>
+              <div>
+                <label for="frontage" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">APPROXIMATE FRONTAGE / VISIBILITY</label>
+                <select name="frontage" id="frontage" class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] focus:border-cyan focus:outline-none transition-all duration-200">
+                  <option value="">Select...</option>
+                  <option>High street / city centre</option>
+                  <option>Busy road / arterial route</option>
+                  <option>Residential area</option>
+                  <option>Mixed use</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label for="current-situation" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">CURRENT SITUATION</label>
+                <textarea name="current-situation" id="current-situation" rows="3" placeholder="Tell us about the site — how long it's been vacant, any planning history, or what's holding development back"
+                  class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] placeholder:text-mid-grey/50 focus:border-cyan focus:outline-none transition-all duration-200 resize-none"></textarea>
+              </div>
+            </div>
+
+            <!-- Conditional: Commercial -->
+            <div class="conditional-fields hidden space-y-5 mb-6" data-scheme="commercial">
+              <div>
+                <label for="org-type" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">ORGANISATION TYPE</label>
+                <select name="org-type" id="org-type" class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] focus:border-cyan focus:outline-none transition-all duration-200">
+                  <option value="">Select...</option>
+                  <option>Retail operator</option>
+                  <option>Drive-thru / QSR estate</option>
+                  <option>Leisure / entertainment</option>
+                  <option>Local authority</option>
+                  <option>NHS / public sector</option>
+                  <option>Housing association</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="estate-sites" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">NUMBER OF SITES IN YOUR ESTATE</label>
+                <select name="estate-sites" id="estate-sites" class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] focus:border-cyan focus:outline-none transition-all duration-200">
+                  <option value="">Select...</option>
+                  <option>1</option>
+                  <option>2–5</option>
+                  <option>6–20</option>
+                  <option>21–100</option>
+                  <option>100+</option>
+                </select>
+              </div>
+              <div>
+                <label for="primary-locations" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">PRIMARY LOCATION(S)</label>
+                <input type="text" name="primary-locations" id="primary-locations" placeholder="Cities or regions where your sites are based"
+                  class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] placeholder:text-mid-grey/50 focus:border-cyan focus:outline-none transition-all duration-200" />
+              </div>
+              <div>
+                <label for="message-commercial" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">TELL US MORE</label>
+                <textarea name="message" id="message-commercial" rows="3" placeholder="Any specific sites, estate requirements, or questions"
+                  class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] placeholder:text-mid-grey/50 focus:border-cyan focus:outline-none transition-all duration-200 resize-none"></textarea>
+              </div>
+            </div>
+
+            <!-- Conditional: Events -->
+            <div class="conditional-fields hidden space-y-5 mb-6" data-scheme="events">
+              <div>
+                <label for="event-type" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">EVENT TYPE</label>
+                <select name="event-type" id="event-type" class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] focus:border-cyan focus:outline-none transition-all duration-200">
+                  <option value="">Select...</option>
+                  <option>Music festival</option>
+                  <option>Sporting event</option>
+                  <option>Theme park / attraction</option>
+                  <option>Exhibition / trade show</option>
+                  <option>Arena / venue</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="event-name" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">EVENT OR VENUE NAME</label>
+                <input type="text" name="event-name" id="event-name" placeholder="Name of your event or venue"
+                  class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] placeholder:text-mid-grey/50 focus:border-cyan focus:outline-none transition-all duration-200" />
+              </div>
+              <div>
+                <label for="event-location" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">EVENT LOCATION</label>
+                <input type="text" name="event-location" id="event-location" placeholder="Town, city or venue address"
+                  class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] placeholder:text-mid-grey/50 focus:border-cyan focus:outline-none transition-all duration-200" />
+              </div>
+              <div>
+                <label for="event-date" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">NEXT EVENT DATE OR SEASON</label>
+                <input type="text" name="event-date" id="event-date" placeholder="e.g. June 2026, or ongoing"
+                  class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] placeholder:text-mid-grey/50 focus:border-cyan focus:outline-none transition-all duration-200" />
+              </div>
+              <div>
+                <label for="message-events" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">TELL US ABOUT YOUR EVENT</label>
+                <textarea name="message" id="message-events" rows="3" placeholder="Audience size, site layout, any specific screen placement ideas"
+                  class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] placeholder:text-mid-grey/50 focus:border-cyan focus:outline-none transition-all duration-200 resize-none"></textarea>
+              </div>
+            </div>
+
+            <!-- Conditional: Investment -->
+            <div class="conditional-fields hidden space-y-5 mb-6" data-scheme="investment">
+              <div>
+                <label for="investor-type" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">INVESTOR TYPE</label>
+                <select name="investor-type" id="investor-type" class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] focus:border-cyan focus:outline-none transition-all duration-200">
+                  <option value="">Select...</option>
+                  <option>Angel investor</option>
+                  <option>Venture capital</option>
+                  <option>Family office</option>
+                  <option>Strategic investor</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="investment-stage" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">INVESTMENT STAGE</label>
+                <select name="investment-stage" id="investment-stage" class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] focus:border-cyan focus:outline-none transition-all duration-200">
+                  <option value="">Select...</option>
+                  <option>Seed / pre-revenue</option>
+                  <option>Series A</option>
+                  <option>Growth capital</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div>
+                <label for="how-found" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">HOW DID YOU FIND US?</label>
+                <select name="how-found" id="how-found" class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] focus:border-cyan focus:outline-none transition-all duration-200">
+                  <option value="">Select...</option>
+                  <option>Search</option>
+                  <option>Referral</option>
+                  <option>Industry event</option>
+                  <option>Social media</option>
+                  <option>Press</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="message-investment" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">ANYTHING YOU'D LIKE TO SHARE</label>
+                <textarea name="message" id="message-investment" rows="3" placeholder="Investment thesis, questions, or any relevant background"
+                  class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] placeholder:text-mid-grey/50 focus:border-cyan focus:outline-none transition-all duration-200 resize-none"></textarea>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" id="submit-btn" disabled
+              class="w-full mt-4 px-10 py-4 bg-cyan text-navy font-grotesk font-semibold text-[15px] tracking-[0.04em] rounded-sm transition-all duration-200 opacity-40 cursor-not-allowed hover:enabled:shadow-[0_0_24px_rgba(0,212,255,0.35)]"
+              style="background: #00D4FF;">
+              Send Enquiry &rarr;
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- What happens next — moved below form -->
+    <div class="reveal mt-16 border border-cyan/[0.15] rounded-md p-8 md:p-10" style="background: rgba(0, 212, 255, 0.02);">
+      <p class="font-mono font-semibold text-[18px] text-cyan uppercase tracking-[0.18em] mb-4">WHAT HAPPENS NEXT</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <p class="font-mono font-semibold text-[13px] text-off-white mb-1">01 &mdash; Review</p>
+          <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.6;">We review your enquiry and assess the opportunity within 48 hours.</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[13px] text-off-white mb-1">02 &mdash; Assessment</p>
+          <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.6;">We prepare a site-specific or scheme-specific proposal tailored to your situation.</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[13px] text-off-white mb-1">03 &mdash; Conversation</p>
+          <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.6;">We arrange a call or meeting to walk through the proposal and next steps.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const schemeButtons = document.querySelectorAll('.scheme-btn');
+  const schemeInput = document.getElementById('scheme-value') as HTMLInputElement;
+  const conditionalSections = document.querySelectorAll('.conditional-fields');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+  schemeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      schemeButtons.forEach(b => {
+        b.classList.remove('active');
+        (b as HTMLElement).style.borderColor = 'rgba(0, 212, 255, 0.15)';
+        (b as HTMLElement).style.background = 'rgba(0, 212, 255, 0.04)';
+        (b as HTMLElement).style.color = '#8A9BB0';
+      });
+
+      btn.classList.add('active');
+      const color = (btn as HTMLElement).dataset.color;
+      const scheme = (btn as HTMLElement).dataset.scheme!;
+
+      if (color === 'cyan') {
+        (btn as HTMLElement).style.borderColor = '#00D4FF';
+        (btn as HTMLElement).style.background = 'rgba(0, 212, 255, 0.12)';
+        (btn as HTMLElement).style.color = '#00D4FF';
+      } else {
+        (btn as HTMLElement).style.borderColor = '#F5A623';
+        (btn as HTMLElement).style.background = 'rgba(245, 166, 35, 0.12)';
+        (btn as HTMLElement).style.color = '#F5A623';
+      }
+
+      schemeInput.value = scheme;
+
+      conditionalSections.forEach(section => {
+        const el = section as HTMLElement;
+        if (el.dataset.scheme === scheme) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '1';
+      submitBtn.style.cursor = 'pointer';
+    });
+  });
+
+  // Form submission
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
+      const scheme = schemeInput.value;
+      const messages: Record<string, string> = {
+        construction: "We'll review your site pipeline and come back with an initial assessment.",
+        landlords: "We'll look at your site and come back with an audience data report for your location.",
+        commercial: "We'll review your estate details and prepare a proposal.",
+        events: "We'll prepare a costed proposal for your event within 48 hours.",
+        investment: "We'll be in touch to arrange a conversation.",
+      };
+
+      const container = document.getElementById('contact-form-container')!;
+      container.innerHTML = `
+        <div class="text-center py-12">
+          <svg width="48" height="48" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-6">
+            <polygon points="36,4 64,20 64,52 36,68 8,52 8,20" fill="#00D4FF"/>
+            <polygon points="36,18 52,27 52,45 36,54 20,45 20,27" fill="#0D1B2A"/>
+          </svg>
+          <h2 class="font-grotesk font-bold text-[32px] text-off-white mb-3">Thank you.</h2>
+          <p class="font-grotesk text-[16px] text-mid-grey mb-4">We've received your enquiry and we'll be in touch within 48 hours.</p>
+          <p class="font-grotesk font-medium text-[15px] text-off-white">${messages[scheme] || ''}</p>
+        </div>
+      `;
+    } catch (err) {
+      console.error('Form submission error:', err);
+    }
+  });
+</script>

@@ -1,0 +1,49 @@
+---
+interface Props {
+  value: string;
+  label: string;
+  body: string;
+  source?: string;
+  valueColor?: 'cyan' | 'amber' | 'grey';
+  counterTarget?: number;
+  class?: string;
+}
+
+const {
+  value,
+  label,
+  body,
+  source,
+  valueColor = 'cyan',
+  counterTarget,
+  class: className = '',
+} = Astro.props;
+
+const valueColorClass = {
+  cyan: 'text-cyan',
+  amber: 'text-amber',
+  grey: 'text-mid-grey',
+}[valueColor];
+---
+
+<div class:list={['stat-block p-10 md:p-12 border border-cyan/[0.12] rounded bg-cyan/[0.02] transition-all duration-250 hover:border-cyan/25 hover:-translate-y-0.5', className]}>
+  <span
+    class:list={['font-mono font-semibold text-5xl md:text-7xl leading-none tracking-tight', valueColorClass]}
+    style="letter-spacing: -0.02em;"
+    data-counter={counterTarget ? '' : undefined}
+    data-target={counterTarget}
+  >
+    {value}
+  </span>
+  <p class="font-mono font-semibold text-[11px] uppercase tracking-[0.18em] text-mid-grey mt-3">
+    {label}
+  </p>
+  <p class="font-grotesk text-[16px] text-mid-grey leading-relaxed mt-4" style="line-height: 1.65;">
+    {body}
+  </p>
+  {source && (
+    <p class="font-mono text-[10px] text-mid-grey/60 mt-4">
+      {source}
+    </p>
+  )}
+</div>

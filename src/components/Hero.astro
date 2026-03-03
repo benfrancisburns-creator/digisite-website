@@ -1,0 +1,106 @@
+---
+// Hero.astro — DS-03
+---
+
+<section id="hero" class="relative w-full min-h-screen bg-navy overflow-hidden flex items-center">
+
+  <!-- Ambient glow layer -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute w-full h-full" style="background: radial-gradient(ellipse 50% 35% at 70% 45%, rgba(0, 212, 255, 0.08) 0%, transparent 100%);"></div>
+  </div>
+
+  <!-- Hero image -->
+  <div class="absolute right-0 top-0 bottom-0 w-3/5 pointer-events-none hero-illustration hidden md:block" aria-hidden="true">
+    <img
+      src="/digiscaff-hero.png"
+      alt=""
+      class="w-full h-full object-cover"
+      style="mask-image: linear-gradient(to right, transparent 0%, black 25%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%);"
+    />
+  </div>
+
+  <!-- Text content -->
+  <div class="relative z-10 max-w-content mx-auto px-6 md:px-12 w-full pt-24 md:pt-0">
+    <div class="max-w-xl hero-text">
+
+      <!-- Pill label -->
+      <div class="inline-flex items-center px-3 py-1.5 border border-cyan/35 bg-cyan/5 mb-8 hero-pill rounded-sm">
+        <span class="font-mono text-[18px] text-cyan uppercase tracking-[0.15em]">Digital Out-of-Home &middot; UK</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="font-grotesk font-bold text-white leading-none mb-7 hero-headline"
+          style="font-size: clamp(48px, 7vw, 100px); letter-spacing: -0.03em;">
+        The forever-moving canvas.
+      </h1>
+
+      <!-- Subhead -->
+      <p class="font-grotesk text-mid-grey mb-12 hero-subhead"
+         style="font-size: 19px; max-width: 520px; line-height: 1.7;">
+        DigiSite deploys high-brightness LED screens on construction scaffolding and perimeter hoardings &mdash; creating premium digital advertising inventory where cities grow.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-5 hero-cta">
+        <a href="#solution"
+           class="inline-block px-8 py-4 bg-cyan text-navy font-grotesk font-medium text-[14px] uppercase tracking-[0.08em] rounded-sm hover:shadow-[0_0_24px_rgba(0,212,255,0.4)] transition-all duration-200"
+           style="background: #00D4FF;">
+          Explore DigiSite
+        </a>
+        <a href="#opportunity"
+           class="text-mid-grey hover:text-off-white font-grotesk text-[14px] transition-colors duration-200">
+          See how it works &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-10 left-6 md:left-12 flex-col items-center gap-3 hero-scroll-indicator hidden md:flex" aria-hidden="true">
+    <div class="w-px h-10 bg-cyan/40"></div>
+    <span class="font-grotesk font-medium text-[9px] text-mid-grey uppercase tracking-[0.2em]"
+          style="writing-mode: vertical-lr; transform: rotate(180deg);">Scroll</span>
+  </div>
+
+</section>
+
+<style>
+  .hero-pill,
+  .hero-headline,
+  .hero-subhead,
+  .hero-cta,
+  .hero-illustration,
+  .hero-scroll-indicator {
+    opacity: 0;
+    animation-fill-mode: both;
+    animation-timing-function: ease-out;
+  }
+
+  .hero-pill { animation: heroReveal 0.5s 0.2s both; }
+  .hero-headline { animation: heroRevealUp 0.6s 0.35s both; }
+  .hero-subhead { animation: heroReveal 0.5s 0.5s both; }
+  .hero-cta { animation: heroReveal 0.5s 0.65s both; }
+  .hero-illustration { animation: heroFade 0.8s 0.4s both; }
+  .hero-scroll-indicator { animation: heroFade 0.6s 1.2s both; }
+
+  @keyframes heroRevealUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes heroReveal {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes heroFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .hero-scroll-indicator {
+    animation: heroFade 0.6s 1.2s both, scrollPulse 2.5s 1.8s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+</style>

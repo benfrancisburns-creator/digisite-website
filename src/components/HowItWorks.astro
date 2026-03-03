@@ -1,0 +1,192 @@
+---
+// HowItWorks.astro — DS-06
+
+const steps = [
+  {
+    num: '01',
+    label: 'Partnership',
+    desc: 'Join the DigiSite scheme and share your forward site pipeline. DigiSite assesses each site against audience data and commercial viability.',
+    tags: [{ text: 'PARTNER', color: 'amber' as const }, { text: 'DIGISITE', color: 'cyan' as const }],
+  },
+  {
+    num: '02',
+    label: 'Site Assessment',
+    desc: 'DigiSite surveys each qualifying site — scaffold geometry, perimeter dimensions, audience data from Route, and planning sensitivity. A commercial viability decision is made per site.',
+    tags: [{ text: 'DIGISITE', color: 'cyan' as const }],
+  },
+  {
+    num: '03',
+    label: 'Planning Consent',
+    desc: 'DigiSite submits and funds advertisement consent applications for every qualifying site. No screen goes live without consent. Partners are kept informed throughout.',
+    tags: [{ text: 'DIGISITE', color: 'cyan' as const }],
+    note: 'Typical timeline: 10–20 weeks depending on site sensitivity.',
+  },
+  {
+    num: '04',
+    label: 'Mobilisation',
+    desc: 'DigiSite deploys screens, rigging, power infrastructure and connectivity — coordinated with the partner\'s site programme. Installation is fast and non-disruptive to site operations.',
+    tags: [{ text: 'DIGISITE', color: 'cyan' as const }],
+  },
+  {
+    num: '05',
+    label: 'Go Live',
+    desc: 'Screens go live. DigiSite manages all advertising sales, content scheduling, remote monitoring and advertiser reporting. The partner receives monthly proof-of-play reports.',
+    tags: [{ text: 'DIGISITE', color: 'cyan' as const }],
+  },
+  {
+    num: '06',
+    label: 'Revenue Share',
+    desc: 'Monthly revenue share payments in arrears, with full reporting. The partner earns from their site without managing a single advertiser relationship.',
+    tags: [{ text: 'DIGISITE', color: 'cyan' as const }, { text: 'PARTNER', color: 'amber' as const }],
+  },
+];
+
+const partnerProvides = [
+  'Site access and programme dates',
+  'Coordination with site operations during installation',
+  'Exclusivity on the relevant structure during the agreement term',
+];
+
+const digisiteHandles = [
+  'Advertisement consent applications (funded by DigiSite)',
+  'Structural engineering sign-off per site',
+  'DNO power connection and sub-metering',
+  'Hardware supply, installation and maintenance',
+  'All advertising sales and content management',
+  'Monthly revenue share payments and proof-of-play reporting',
+];
+---
+
+<section id="how-it-works" class="relative bg-section">
+  <div class="rule-cyan"></div>
+
+  <div class="max-w-content mx-auto px-6 md:px-12 py-20 md:py-[120px]">
+
+    <!-- Header -->
+    <div class="reveal mb-20">
+      <p class="font-mono font-semibold text-[18px] text-cyan uppercase tracking-[0.2em] mb-4">HOW IT WORKS</p>
+      <h2 class="font-grotesk font-bold text-off-white mb-5" style="font-size: clamp(34px, 5vw, 52px); letter-spacing: -0.02em; max-width: 720px;">
+        DigiSite handles the complexity. You share the revenue.
+      </h2>
+      <p class="font-grotesk text-mid-grey text-lg" style="max-width: 640px; line-height: 1.65;">
+        From first conversation to live screen, DigiSite manages planning consent, power infrastructure, hardware installation and content management. A construction partner provides site access and programme dates. Everything else is DigiSite.
+      </p>
+    </div>
+
+    <!-- Six-step timeline -->
+    <div class="relative mb-20">
+      <!-- Desktop connecting line -->
+      <div class="hidden md:block absolute top-5 left-0 right-0 h-px bg-cyan/30 timeline-line" style="width: 0%;"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-6 gap-10 md:gap-0 relative">
+        {steps.map((step, i) => (
+          <div class="reveal relative md:px-3">
+            <!-- Mobile connecting line -->
+            <div class="absolute left-5 top-10 bottom-0 w-px bg-cyan/20 md:hidden"></div>
+
+            <!-- Step number -->
+            <div class="relative z-10 w-10 h-10 rounded-full border border-cyan/40 bg-cyan/[0.06] flex items-center justify-center mb-4 md:mx-auto">
+              <span class="font-mono font-semibold text-[14px] text-cyan">{step.num}</span>
+            </div>
+
+            <div class="md:text-center pl-14 md:pl-0">
+              <h4 class="font-grotesk font-bold text-[15px] text-off-white mb-2" style="letter-spacing: -0.01em;">
+                {step.label}
+              </h4>
+              <p class="font-grotesk text-[13px] text-mid-grey mb-3" style="line-height: 1.6;">
+                {step.desc}
+              </p>
+              {step.note && (
+                <p class="font-mono text-[11px] text-mid-grey/70 mb-3">{step.note}</p>
+              )}
+              <div class="flex gap-2 md:justify-center flex-wrap">
+                {step.tags.map(tag => (
+                  <span class:list={[
+                    'inline-block px-2.5 py-1 rounded-sm font-mono font-semibold text-[12px] uppercase tracking-[0.15em] border',
+                    tag.color === 'cyan' ? 'bg-cyan/10 border-cyan/25 text-cyan' : 'bg-amber/10 border-amber/25 text-amber',
+                  ]}>
+                    {tag.text}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Value exchange panel -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-[2px] mb-12">
+      <!-- Partner column -->
+      <div class="reveal p-8 md:p-9">
+        <div class="mb-6 pb-3" style="background: rgba(245, 166, 35, 0.05);">
+          <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-amber px-2 py-2">THE PARTNER PROVIDES</p>
+        </div>
+        {partnerProvides.map(item => (
+          <p class="font-grotesk text-[15px] text-mid-grey mb-3" style="line-height: 1.7;">
+            <span class="text-amber mr-2">&rarr;</span>{item}
+          </p>
+        ))}
+      </div>
+
+      <!-- DigiSite column -->
+      <div class="reveal p-8 md:p-9">
+        <div class="mb-6 pb-3" style="background: rgba(0, 212, 255, 0.05);">
+          <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-cyan px-2 py-2">DIGISITE HANDLES</p>
+        </div>
+        {digisiteHandles.map(item => (
+          <p class="font-grotesk text-[15px] text-mid-grey mb-3" style="line-height: 1.7;">
+            <span class="text-cyan mr-2">&rarr;</span>{item}
+          </p>
+        ))}
+      </div>
+    </div>
+
+    <!-- Balance statement -->
+    <div class="reveal text-center pt-8 border-t border-white/[0.06]">
+      <p class="font-grotesk font-bold text-[20px] text-off-white" style="letter-spacing: -0.01em;">
+        The partner provides the location. DigiSite provides everything else.
+      </p>
+    </div>
+
+    <!-- DNO benefit callout -->
+    <div class="reveal mt-16 p-8 md:p-10 border border-cyan/[0.15] rounded-md bg-cyan/[0.04]">
+      <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8">
+        <div>
+          <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-cyan mb-3">POWER SUPPLY BENEFIT</p>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-cyan">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div>
+          <h4 class="font-grotesk font-bold text-[20px] text-off-white mb-3" style="letter-spacing: -0.01em;">
+            DigiSite manages the DNO connection &mdash; so you don't have to.
+          </h4>
+          <p class="font-grotesk text-[15px] text-mid-grey mb-4" style="line-height: 1.7;">
+            Every DigiSite deployment requires a DNO (Distribution Network Operator) connection for site power. Because regulations permit only one temporary connection per site, DigiSite and the construction contractor share the supply. DigiSite handles the application, the lead time, and the admin. The contractor receives access to site power at cost &mdash; sub-metered, accurate, no markup.
+          </p>
+          <p class="font-grotesk font-medium text-[15px] text-off-white">
+            This benefit alone often covers the cost of partnering with DigiSite before a single advertisement runs.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const timelineLine = document.querySelector('.timeline-line') as HTMLElement;
+  if (timelineLine) {
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          timelineLine.style.transition = 'width 1.2s ease-out';
+          timelineLine.style.width = '100%';
+          timelineObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    timelineObserver.observe(timelineLine.parentElement!);
+  }
+</script>

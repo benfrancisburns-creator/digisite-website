@@ -1,0 +1,18 @@
+---
+interface Props {
+  text: string;
+  color?: 'cyan' | 'amber';
+  class?: string;
+}
+
+const { text, color = 'cyan', class: className = '' } = Astro.props;
+
+const colorClasses = {
+  cyan: 'border-cyan/35 bg-cyan/5 text-cyan',
+  amber: 'border-amber/35 bg-amber/5 text-amber',
+};
+---
+
+<div class:list={['inline-flex items-center px-3 py-1.5 border rounded-sm', colorClasses[color], className]}>
+  <span class="font-mono text-[11px] uppercase tracking-[0.15em]">{text}</span>
+</div>

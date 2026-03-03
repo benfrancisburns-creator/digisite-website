@@ -1,0 +1,107 @@
+---
+// Opportunity.astro — DS-04
+---
+
+<section id="opportunity" class="relative bg-section">
+  <!-- Top cyan rule -->
+  <div class="rule-cyan"></div>
+
+  <div class="max-w-content mx-auto px-6 md:px-12 py-20 md:py-[120px]">
+
+    <!-- Eyebrow -->
+    <p class="reveal font-mono font-semibold text-[18px] text-cyan uppercase tracking-[0.2em] text-center mb-6">
+      THE OPPORTUNITY
+    </p>
+
+    <!-- Framing statement -->
+    <h2 class="reveal font-grotesk font-bold text-off-white text-center mx-auto mb-[72px]"
+        style="font-size: clamp(22px, 3vw, 28px); max-width: 720px; letter-spacing: -0.01em; line-height: 1.3;">
+      DigiSite channels advertising budgets directly into the construction industry &mdash; creating revenue from spaces that previously had only costs attached to them.
+    </h2>
+
+    <!-- Three stat blocks -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-[2px] reveal-stagger">
+
+      <!-- Stat 1 -->
+      <div class="reveal stat-block p-8 md:p-10 border border-cyan/[0.12] rounded bg-cyan/[0.02] transition-all duration-250 hover:border-cyan/25 hover:-translate-y-0.5">
+        <span class="font-mono font-semibold text-5xl md:text-7xl text-cyan leading-none" style="letter-spacing: -0.02em;" data-counter data-target="6235">
+          0
+        </span>
+        <p class="font-mono font-semibold text-[11px] uppercase tracking-[0.18em] text-mid-grey mt-3">
+          SCAFFOLD BUSINESSES IN THE UK
+        </p>
+        <p class="font-grotesk text-[16px] text-mid-grey mt-4" style="line-height: 1.65;">
+          Each one operates a forward pipeline of active sites. Every site is a potential DigiSite location generating zero advertising revenue today.
+        </p>
+        <p class="font-mono text-[10px] text-mid-grey/60 mt-4">ONS, March 2024</p>
+      </div>
+
+      <!-- Stat 2 — Before/After -->
+      <div class="reveal stat-block p-8 md:p-10 border border-cyan/[0.12] rounded bg-cyan/[0.02] transition-all duration-250 hover:border-cyan/25 hover:-translate-y-0.5">
+        <div class="flex items-end gap-3 md:gap-4 flex-wrap">
+          <span class="font-mono font-semibold text-5xl md:text-[64px] text-mid-grey leading-none">&pound;0</span>
+          <span class="font-grotesk text-3xl md:text-[40px] text-mid-grey leading-none">&rarr;</span>
+          <span class="font-mono font-semibold text-5xl md:text-[64px] text-cyan leading-none">&pound;40k</span>
+        </div>
+        <p class="font-mono font-semibold text-[10px] uppercase tracking-[0.15em] text-mid-grey mt-3">
+          WHAT A SCAFFOLD FACE EARNS TODAY &rarr; WHAT A DIGISITE PARTNER EARNS PER SCREEN*
+        </p>
+        <p class="font-grotesk text-[16px] text-mid-grey mt-4" style="line-height: 1.65;">
+          One screen. One partner. Zero upfront cost to the construction firm. Revenue share from the day it goes live.
+        </p>
+        <p class="font-mono text-[10px] text-mid-grey/60 mt-4">DigiSite financial model &mdash; base case. To be confirmed with formal quotes.</p>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="reveal stat-block p-8 md:p-10 border border-cyan/[0.12] rounded bg-cyan/[0.02] transition-all duration-250 hover:border-cyan/25 hover:-translate-y-0.5">
+        <span class="font-mono font-semibold text-5xl md:text-7xl text-cyan leading-none" style="letter-spacing: -0.02em;" data-counter data-target="700" data-prefix="£" data-suffix="bn+">
+          0
+        </span>
+        <p class="font-mono font-semibold text-[11px] uppercase tracking-[0.18em] text-mid-grey mt-3">
+          UK INFRASTRUCTURE INVESTMENT COMMITTED
+        </p>
+        <p class="font-grotesk text-[16px] text-mid-grey mt-4" style="line-height: 1.65;">
+          Government-committed capital over the next decade. Every contract awarded builds more DigiSite inventory. The pipeline is not shrinking &mdash; it's mandated to grow.
+        </p>
+        <p class="font-mono text-[10px] text-mid-grey/60 mt-4">HM Treasury / National Infrastructure and Construction Pipeline</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom amber rule -->
+  <div class="rule-amber"></div>
+</section>
+
+<script>
+  function animateCounter(element: HTMLElement, target: number, duration = 1200) {
+    const start = performance.now();
+    const prefix = element.dataset.prefix || '';
+    const suffix = element.dataset.suffix || '';
+
+    requestAnimationFrame(function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * target);
+
+      element.textContent = prefix + current.toLocaleString('en-GB') + (progress >= 1 ? suffix : '');
+
+      if (progress < 1) requestAnimationFrame(tick);
+      else element.textContent = prefix + target.toLocaleString('en-GB') + suffix;
+    });
+  }
+
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target as HTMLElement;
+        const target = parseInt(el.dataset.target || '0');
+        if (target) animateCounter(el, target);
+        statObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('[data-counter]').forEach(el => statObserver.observe(el));
+</script>

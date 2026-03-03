@@ -1,0 +1,59 @@
+---
+interface Props {
+  variant?: 'dark' | 'light';
+  size?: 'nav' | 'large' | 'icon';
+  class?: string;
+}
+
+const { variant = 'dark', size = 'nav', class: className = '' } = Astro.props;
+
+const wordmarkColor = variant === 'dark' ? '#FFFFFF' : '#0D1B2A';
+const innerColor = variant === 'dark' ? '#0D1B2A' : '#FFFFFF';
+
+const dimensions = {
+  nav: { width: 156, height: 43, viewBox: '0 0 260 72' },
+  large: { width: 220, height: 60, viewBox: '0 0 260 72' },
+  icon: { width: 48, height: 48, viewBox: '0 0 72 72' },
+};
+
+const d = dimensions[size];
+---
+
+{size === 'icon' ? (
+  <svg
+    width={d.width}
+    height={d.height}
+    viewBox={d.viewBox}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label="DigiSite"
+    class={className}
+  >
+    <polygon points="36,4 64,20 64,52 36,68 8,52 8,20" fill="#00D4FF" />
+    <polygon points="36,18 52,27 52,45 36,54 20,45 20,27" fill={innerColor} />
+  </svg>
+) : (
+  <svg
+    width={d.width}
+    height={d.height}
+    viewBox={d.viewBox}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label="DigiSite"
+    class={className}
+  >
+    <polygon points="36,4 64,20 64,52 36,68 8,52 8,20" fill="#00D4FF" />
+    <polygon points="36,18 52,27 52,45 36,54 20,45 20,27" fill={innerColor} />
+    <text
+      x="82"
+      y="48"
+      font-family="'Space Grotesk', sans-serif"
+      font-weight="700"
+      font-size="38"
+      fill={wordmarkColor}
+      letter-spacing="-0.5"
+    >DigiSite</text>
+  </svg>
+)}

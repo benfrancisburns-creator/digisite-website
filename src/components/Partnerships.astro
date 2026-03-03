@@ -1,0 +1,456 @@
+---
+// Partnerships.astro — DS-08
+---
+
+<section id="partnerships" class="relative bg-navy">
+  <!-- Amber rule -->
+  <div class="rule-amber"></div>
+
+  <div class="max-w-content mx-auto px-6 md:px-12 py-20 md:py-[120px]">
+
+    <!-- Header -->
+    <div class="reveal mb-16">
+      <p class="font-mono font-semibold text-[18px] text-cyan uppercase tracking-[0.2em] mb-4">PARTNERSHIP SCHEMES</p>
+      <h2 class="font-grotesk font-bold text-off-white mb-5" style="font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.02em; max-width: 700px;">
+        Four schemes. One for every partner type.
+      </h2>
+      <p class="font-grotesk text-mid-grey text-lg" style="max-width: 600px; line-height: 1.65;">
+        DigiSite doesn't offer a single generic partnership. Each scheme is built around the specific asset, commercial position, and priorities of a different type of partner. Find your scheme below.
+      </p>
+    </div>
+
+    <!-- Sticky scheme selector -->
+    <div id="scheme-selector-bar" class="sticky top-[72px] z-40 -mx-6 md:-mx-12 px-6 md:px-12 mb-12" style="background: rgba(13, 27, 42, 0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 212, 255, 0.12);">
+      <div class="max-w-content mx-auto flex items-center h-[52px] gap-4 md:gap-8 overflow-x-auto" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
+        <button class="scheme-selector-item active whitespace-nowrap font-grotesk font-medium text-[15px] tracking-[0.04em] text-off-white border-b-2 border-cyan pb-1 transition-all duration-200" data-target="scheme-construction">Construction & Development</button>
+        <button class="scheme-selector-item whitespace-nowrap font-grotesk font-medium text-[15px] tracking-[0.04em] text-mid-grey border-b-2 border-transparent pb-1 transition-all duration-200" data-target="scheme-landlords">Landlords & Landowners</button>
+        <button class="scheme-selector-item whitespace-nowrap font-grotesk font-medium text-[15px] tracking-[0.04em] text-mid-grey border-b-2 border-transparent pb-1 transition-all duration-200" data-target="scheme-commercial">Commercial & Public</button>
+        <button class="scheme-selector-item whitespace-nowrap font-grotesk font-medium text-[15px] tracking-[0.04em] text-mid-grey border-b-2 border-transparent pb-1 transition-all duration-200" data-target="scheme-events">Events</button>
+      </div>
+    </div>
+
+    <!-- PANEL 1: Construction & Development -->
+    <div id="scheme-construction" class="scheme-panel reveal bg-section rounded-md p-8 md:p-12 mb-6">
+      <div class="h-px bg-cyan/40 -mx-8 md:-mx-12 -mt-8 md:-mt-12 mb-8 md:mb-12"></div>
+
+      <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.2em] text-cyan/60 mb-2">SCHEME 01</p>
+      <h3 class="font-grotesk font-bold text-off-white mb-3" style="font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.02em;">Construction & Development</h3>
+      <p class="font-grotesk text-mid-grey text-[20px] mb-10">Turn your scaffold pipeline into a recurring revenue stream.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-[40%_60%] gap-10 mb-12">
+        <!-- Left: Who + What -->
+        <div>
+          <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-cyan mb-4">FOR</p>
+          <div class="space-y-2 mb-8">
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-cyan mr-2">&rarr;</span>Scaffold companies with a pipeline of contracted sites</p>
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-cyan mr-2">&rarr;</span>Principal contractors managing their own scaffold</p>
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-cyan mr-2">&rarr;</span>Building companies with control of their site perimeter</p>
+          </div>
+
+          <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-cyan mb-4">WHAT YOU RECEIVE</p>
+          <div class="space-y-2">
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-cyan mr-2">&rarr;</span>Revenue share on every site in your pipeline</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-cyan mr-2">&rarr;</span>Zero upfront cost &mdash; DigiSite funds hardware and installation</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-cyan mr-2">&rarr;</span>DigiSite manages planning, power, advertising sales</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-cyan mr-2">&rarr;</span>Site power supply at cost via DNO sub-metering</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-cyan mr-2">&rarr;</span>Monthly revenue reports with proof-of-play</p>
+          </div>
+        </div>
+
+        <!-- Right: Proposition -->
+        <div>
+          <p class="font-grotesk font-bold text-[20px] text-off-white mb-5" style="letter-spacing: -0.01em;">
+            Your scaffold generates work for your clients. With DigiSite, it generates income for you.
+          </p>
+          <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.75;">
+            Every site in your pipeline is a potential DigiSite location. You share your forward programme &mdash; sites contracted or in tender, with approximate dates and locations. DigiSite assesses each one, handles planning consent, and deploys on every qualifying site. You earn a revenue share on every screen that goes live.
+          </p>
+          <p class="font-grotesk text-[15px] text-mid-grey mt-4" style="line-height: 1.75;">
+            This is the pipeline model: the partnership comes first, sites flow from it. The more active sites you carry, the more you earn. And because DigiSite is already on your site managing power infrastructure, there's a direct operational benefit before the first advertisement ever runs.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tier model -->
+      <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-cyan mb-6">VOLUME TIER MODEL &mdash; REVENUE SHARE INCREASES WITH ACTIVE SITES</p>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+        <div class="p-5 border border-cyan/[0.15] rounded bg-cyan/[0.04]">
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-cyan mb-2">TIER 1</p>
+          <p class="font-mono font-semibold text-[22px] text-off-white">1&ndash;4</p>
+          <p class="font-mono font-semibold text-[12px] uppercase text-mid-grey mb-2">SITES</p>
+          <p class="font-grotesk text-[12px] text-mid-grey">Standard onboarding, remote monitoring, proof-of-play</p>
+        </div>
+        <div class="p-5 border border-cyan/[0.15] rounded bg-cyan/[0.05]">
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-cyan mb-2">TIER 2</p>
+          <p class="font-mono font-semibold text-[22px] text-off-white">5&ndash;9</p>
+          <p class="font-mono font-semibold text-[12px] uppercase text-mid-grey mb-2">SITES</p>
+          <p class="font-grotesk text-[12px] text-mid-grey">Priority mobilisation + co-branding on canvas wrap</p>
+        </div>
+        <div class="p-5 border border-cyan/[0.15] rounded bg-cyan/[0.06]">
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-cyan mb-2">TIER 3</p>
+          <p class="font-mono font-semibold text-[22px] text-off-white">10&ndash;19</p>
+          <p class="font-mono font-semibold text-[12px] uppercase text-mid-grey mb-2">SITES</p>
+          <p class="font-grotesk text-[12px] text-mid-grey">Dedicated account contact + pipeline planning support</p>
+        </div>
+        <div class="p-5 border border-cyan/35 rounded bg-cyan/[0.08]">
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-cyan mb-2">TIER 4</p>
+          <p class="font-mono font-semibold text-[22px] text-cyan">20+</p>
+          <p class="font-mono font-semibold text-[12px] uppercase text-mid-grey mb-2">SITES</p>
+          <p class="font-grotesk text-[12px] text-mid-grey">First access to new products + joint business planning</p>
+        </div>
+      </div>
+      <p class="font-grotesk text-[13px] text-mid-grey text-center mb-10">
+        Tier status is calculated on active live sites plus accumulated site history. The more you commit, the better your terms &mdash; and the more you earn.
+      </p>
+
+      <!-- Commercial strip -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-7 border-t border-b border-cyan/10 bg-cyan/[0.03] -mx-8 md:-mx-12 px-8 md:px-12 mb-10">
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">AGREEMENT TYPE</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">Site licence under framework agreement</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">MINIMUM TERM</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">3 months (co-terminus with scaffold)</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">PAYMENT</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">Monthly in arrears</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">PLANNING COST</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">Funded entirely by DigiSite</p>
+        </div>
+      </div>
+
+      <button onclick="scrollToContact('construction')" class="inline-block px-9 py-4 bg-cyan text-navy font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:shadow-[0_0_24px_rgba(0,212,255,0.35)] transition-all duration-200">
+        Join the Construction & Development Scheme &rarr;
+      </button>
+    </div>
+
+    <!-- PANEL 2: Landlords & Landowners -->
+    <div id="scheme-landlords" class="scheme-panel reveal bg-navy border border-cyan/[0.1] rounded-md p-8 md:p-12 mb-6">
+      <div class="h-px bg-amber/40 -mx-8 md:-mx-12 -mt-8 md:-mt-12 mb-8 md:mb-12"></div>
+
+      <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.2em] text-cyan/60 mb-2">SCHEME 02</p>
+      <h3 class="font-grotesk font-bold text-off-white mb-3" style="font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.02em;">Landlords & Landowners</h3>
+      <p class="font-grotesk text-mid-grey text-[20px] mb-10">Your vacant site is costing you money. DigiSite changes that.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-[40%_60%] gap-10 mb-12">
+        <div>
+          <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-cyan mb-4">FOR</p>
+          <div class="space-y-2 mb-8">
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-amber mr-2">&rarr;</span>Property owners with vacant or underperforming sites</p>
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-amber mr-2">&rarr;</span>Freeholders of buildings in planning limbo</p>
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-amber mr-2">&rarr;</span>Owners of heritage properties requiring fabric repair</p>
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-amber mr-2">&rarr;</span>Landowners with high-footfall frontage generating no income</p>
+          </div>
+
+          <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-cyan mb-4">WHAT YOU RECEIVE</p>
+          <div class="space-y-2">
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-amber mr-2">&rarr;</span>A guaranteed minimum annual income from an idle asset</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-amber mr-2">&rarr;</span>Revenue share above a defined threshold</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-amber mr-2">&rarr;</span>No upfront cost &mdash; DigiSite funds scaffold, hardware, and planning</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-amber mr-2">&rarr;</span>Improved visual presentation of a neglected frontage</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-amber mr-2">&rarr;</span>A credible argument for planning authorities (community benefit)</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-grotesk font-bold text-[20px] text-off-white mb-5" style="letter-spacing: -0.01em;">
+            DigiSite doesn't need your site to be active. It needs it to be visible.
+          </p>
+          <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.75;">
+            Vacant plots, empty buildings, sites stuck in planning &mdash; these assets are costing their owners money every month in rates, insurance and maintenance, generating nothing in return. DigiSite identifies sites with strong audience data, approaches the landowner, and proposes a ground licence that pays from day one.
+          </p>
+          <p class="font-grotesk text-[15px] text-mid-grey mt-4" style="line-height: 1.75;">
+            DigiSite sources and erects any scaffold required. DigiSite applies for and funds planning consent. DigiSite manages all advertising. The landowner's contribution is access rights and a signature. The result is a new income stream from an asset that was previously a liability.
+          </p>
+        </div>
+      </div>
+
+      <!-- Heritage callout -->
+      <div class="p-6 md:p-9 border border-amber/20 rounded-md bg-amber/[0.04] mb-10">
+        <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-amber mb-3">HERITAGE & LISTED BUILDINGS</p>
+        <h4 class="font-grotesk font-bold text-[18px] text-off-white mb-3">
+          A deteriorating listed building is a planning problem. DigiSite can help make it a planning solution.
+        </h4>
+        <p class="font-grotesk text-[14px] text-mid-grey mb-4" style="line-height: 1.65;">
+          Where scaffold is required for inspection, stabilisation or repair, DigiSite can monetise that scaffold during the works period. Revenue generated by the screens can be ring-fenced toward fabric repair costs &mdash; a material consideration that planning authorities weigh favourably. Community art content displayed during advertising downtime further strengthens the planning case. DigiSite can help turn a liability into a demonstrable public benefit.
+        </p>
+        <p class="font-mono text-[11px] text-mid-grey/60 mt-4">
+          Grade I and II* listed buildings carry very high planning risk and are assessed on a case-by-case basis. Grade II listed buildings are the primary heritage opportunity.
+        </p>
+      </div>
+
+      <!-- Commercial strip -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-7 border-t border-b border-cyan/10 bg-cyan/[0.03] -mx-8 md:-mx-12 px-8 md:px-12 mb-10">
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">AGREEMENT TYPE</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">Ground licence agreement</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">MINIMUM TERM</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">24 months (36&ndash;48 preferred)</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">PAYMENT</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">Guaranteed minimum + revenue share</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">PLANNING COST</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">Funded entirely by DigiSite</p>
+        </div>
+      </div>
+
+      <button onclick="scrollToContact('landlords')" class="inline-block px-9 py-4 border border-amber text-amber font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:bg-amber/10 transition-all duration-200">
+        Discuss a Landlords & Landowners Scheme &rarr;
+      </button>
+    </div>
+
+    <!-- PANEL 3: Commercial & Public -->
+    <div id="scheme-commercial" class="scheme-panel reveal bg-section rounded-md p-8 md:p-12 mb-6">
+      <div class="h-px bg-cyan/40 -mx-8 md:-mx-12 -mt-8 md:-mt-12 mb-8 md:mb-12"></div>
+
+      <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.2em] text-cyan/60 mb-2">SCHEME 03</p>
+      <h3 class="font-grotesk font-bold text-off-white mb-3" style="font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.02em;">Commercial & Public</h3>
+      <p class="font-grotesk text-mid-grey text-[20px] mb-10">High-footfall sites. Captive audiences. Revenue from a boundary that costs you nothing to maintain.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-[40%_60%] gap-10 mb-12">
+        <div>
+          <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-cyan mb-4">FOR</p>
+          <div class="space-y-2 mb-8">
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-cyan mr-2">&rarr;</span>Retail park and drive-thru operators</p>
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-cyan mr-2">&rarr;</span>Supermarket and leisure destination estate teams</p>
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-cyan mr-2">&rarr;</span>Local authorities with public realm or infrastructure works</p>
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-cyan mr-2">&rarr;</span>NHS trusts and housing associations with estate programmes</p>
+          </div>
+
+          <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-cyan mb-4">WHAT YOU RECEIVE (COMMERCIAL)</p>
+          <div class="space-y-2 mb-6">
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-cyan mr-2">&rarr;</span>Revenue share from advertising on your site boundary</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-cyan mr-2">&rarr;</span>Free screen time allocation for your own promotional content</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-cyan mr-2">&rarr;</span>DigiSite manages all advertisers and content &mdash; zero admin</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-cyan mr-2">&rarr;</span>National estate agreements for multi-site operators</p>
+          </div>
+
+          <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-cyan mb-4">WHAT YOU RECEIVE (PUBLIC SECTOR)</p>
+          <div class="space-y-2">
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-cyan mr-2">&rarr;</span>Screens at no cost to the council or authority</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-cyan mr-2">&rarr;</span>Free inventory: 25&ndash;30% of screen time for public information</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-cyan mr-2">&rarr;</span>Community art and local authority content in downtime</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-cyan mr-2">&rarr;</span>DigiSite generates and shares advertising revenue</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-grotesk font-bold text-[20px] text-off-white mb-5" style="letter-spacing: -0.01em;">
+            A drive-thru queue is a captive audience with dwell time. That's exactly what advertisers want to reach.
+          </p>
+          <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.75;">
+            Commercial sites &mdash; drive-thrus, retail parks, car park perimeters, leisure destinations &mdash; are built around high volumes of passing and dwelling people. DigiPerim is purpose-built for exactly these environments: standalone perimeter framework, no scaffold required, full front-access maintenance, fast to deploy and recover.
+          </p>
+          <p class="font-grotesk text-[15px] text-mid-grey mt-4" style="line-height: 1.75;">
+            For large commercial operators managing national estates, DigiSite offers a Master Site Licence &mdash; one agreement covering all sites. Individual site schedules are appended as screens are deployed. A conversation with the right person in an estates team can unlock dozens of locations from a single agreement.
+          </p>
+
+          <!-- Public sector callout -->
+          <div class="mt-8 p-6 border border-cyan/[0.12] rounded-md bg-cyan/[0.03]">
+            <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-cyan mb-3">PUBLIC SECTOR & COUNCILS</p>
+            <h4 class="font-grotesk font-bold text-[18px] text-off-white mb-3">Screens that inform, connect and pay for themselves.</h4>
+            <p class="font-grotesk text-[14px] text-mid-grey mb-4" style="line-height: 1.65;">
+              DigiSite's offer to a local authority is straightforward: screens deployed at no cost during public realm or infrastructure works, with a defined free inventory allocation for council communications, public health campaigns, local arts content, and community announcements. DigiSite monetises the remaining inventory and shares the revenue. The council gains a communications platform and an income stream from works that would otherwise generate neither.
+            </p>
+            <p class="font-grotesk font-medium text-[13px] text-off-white">
+              DigiSite is actively seeking its first local authority partnership. Liverpool City Council's public art programme makes them a natural first conversation.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Commercial strip -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-7 border-t border-b border-cyan/10 bg-cyan/[0.03] -mx-8 md:-mx-12 px-8 md:px-12 mb-10">
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">AGREEMENT TYPE</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">Site licence / Master Site Licence</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">TERM</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">12&ndash;36 months commercial &middot; aligned to works (public)</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">FREE INVENTORY</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">10&ndash;15% commercial &middot; 25&ndash;30% public sector</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">PLANNING COST</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">Funded entirely by DigiSite</p>
+        </div>
+      </div>
+
+      <button onclick="scrollToContact('commercial')" class="inline-block px-9 py-4 bg-cyan text-navy font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:shadow-[0_0_24px_rgba(0,212,255,0.35)] transition-all duration-200">
+        Explore the Commercial & Public Scheme &rarr;
+      </button>
+    </div>
+
+    <!-- PANEL 4: Events -->
+    <div id="scheme-events" class="scheme-panel reveal bg-navy border border-cyan/[0.1] rounded-md p-8 md:p-12 mb-12">
+      <div class="h-px bg-amber/40 -mx-8 md:-mx-12 -mt-8 md:-mt-12 mb-8 md:mb-12"></div>
+
+      <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.2em] text-cyan/60 mb-2">SCHEME 04</p>
+      <h3 class="font-grotesk font-bold text-off-white mb-3" style="font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.02em;">Events</h3>
+      <p class="font-grotesk text-mid-grey text-[20px] mb-10">Festival and sporting audiences command the highest CPM in DOOH. DigiSite puts screens where those audiences are.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-[40%_60%] gap-10 mb-12">
+        <div>
+          <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-cyan mb-4">FOR</p>
+          <div class="space-y-2 mb-8">
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-amber mr-2">&rarr;</span>Music festival organisers (Glastonbury, Creamfields, Parklife scale)</p>
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-amber mr-2">&rarr;</span>Premier League and major sporting venue operators</p>
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-amber mr-2">&rarr;</span>Theme parks with ongoing construction or permanent frontage</p>
+            <p class="font-grotesk text-[15px] text-off-white" style="line-height: 1.8;"><span class="text-amber mr-2">&rarr;</span>Exhibition centres and arena event operators</p>
+          </div>
+
+          <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-cyan mb-4">WHAT YOU RECEIVE</p>
+          <div class="space-y-2">
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-amber mr-2">&rarr;</span>Guaranteed flat site licence fee &mdash; paid regardless of ad performance</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-amber mr-2">&rarr;</span>Or revenue share on upside for larger, predictable events</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-amber mr-2">&rarr;</span>Zero operational involvement &mdash; DigiSite manages everything</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-amber mr-2">&rarr;</span>Multi-year agreements for annual events</p>
+            <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.7;"><span class="text-amber mr-2">&rarr;</span>Enhanced site presentation &mdash; screens improve the visual environment</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-grotesk font-bold text-[20px] text-off-white mb-5" style="letter-spacing: -0.01em;">
+            Premium brands pay a premium to reach festival audiences. DigiSite captures that premium and shares it with you.
+          </p>
+          <p class="font-grotesk text-[15px] text-mid-grey" style="line-height: 1.75;">
+            Events inventory commands a significant CPM premium over standard DOOH locations. Brands targeting 18&ndash;34 year olds at a music festival, families at a theme park, or ABC1 adults at a Premier League ground will pay more per thousand impressions than for any roadside location &mdash; because the audience quality and dwell time justify it.
+          </p>
+          <p class="font-grotesk text-[15px] text-mid-grey mt-4" style="line-height: 1.75;">
+            DigiSite deploys DigiScaff on construction scaffold at venues under development and DigiPerim on event perimeter fencing. Both products are designed for fast mobilisation and recovery &mdash; critical for a festival site that has days, not weeks, to turn around. Annual events are structured as multi-year agreements with automatic renewal, converting a one-off deployment into a recurring revenue line for both parties.
+          </p>
+
+          <!-- Speed callout -->
+          <div class="mt-8 p-6 border border-amber/20 rounded-md bg-amber/[0.04]">
+            <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.18em] text-amber mb-3">THE EVENTS ADVANTAGE</p>
+            <h4 class="font-grotesk font-bold text-[18px] text-off-white mb-3">From enquiry to proposal: 48 hours. From agreement to live screen: days.</h4>
+            <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.65;">
+              Events move fast. DigiSite's Events scheme uses a single agreement template with clearly defined variables &mdash; event name, screen configuration, deployment dates, site licence fee. We can turn around a fully costed proposal for any event enquiry within 48 hours. DigiPerim is specifically designed for rapid deployment and recovery, making it the natural fit for festivals and sporting events where setup and breakdown windows are tight.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Commercial strip -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-7 border-t border-b border-cyan/10 bg-cyan/[0.03] -mx-8 md:-mx-12 px-8 md:px-12 mb-10">
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">AGREEMENT TYPE</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">Flat site licence fee or short-term revenue share</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">TERM</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">Event duration + mob / demob periods</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">ANNUAL EVENTS</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">Multi-year agreement with automatic renewal</p>
+        </div>
+        <div>
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">PROPOSAL TURNAROUND</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">48 hours from enquiry</p>
+        </div>
+      </div>
+
+      <button onclick="scrollToContact('events')" class="inline-block px-9 py-4 border border-amber text-amber font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:bg-amber/10 transition-all duration-200">
+        Register an Events Enquiry &rarr;
+      </button>
+    </div>
+
+    <!-- Cross-scheme principles -->
+    <div class="bg-section border-t border-cyan/[0.12] -mx-6 md:-mx-12 px-6 md:px-12 py-16">
+      <div class="max-w-content mx-auto">
+        <h3 class="reveal font-grotesk font-bold text-[28px] text-off-white text-center mb-12">
+          Every scheme. Every site. The same commitments.
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 reveal-stagger">
+          <div class="reveal text-center md:text-left">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" class="text-cyan mb-4 mx-auto md:mx-0"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5" /><rect x="7" y="7" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1" opacity="0.5" /></svg>
+            <h4 class="font-grotesk font-bold text-[16px] text-off-white mb-2">Community Art in Downtime</h4>
+            <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.65;">
+              Every DigiSite screen displays local community art and public interest content whenever no paid campaign is running. This is the default content state &mdash; not a sacrifice of paid inventory, but a commitment to the neighbourhoods we operate in.
+            </p>
+          </div>
+          <div class="reveal text-center md:text-left">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" class="text-cyan mb-4 mx-auto md:mx-0"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5" /><rect x="6" y="6" width="5" height="5" fill="currentColor" opacity="0.5" /><rect x="13" y="6" width="5" height="5" fill="currentColor" opacity="0.5" /><rect x="6" y="13" width="5" height="5" fill="currentColor" opacity="0.5" /><rect x="13" y="13" width="5" height="5" fill="currentColor" opacity="0.3" /></svg>
+            <h4 class="font-grotesk font-bold text-[16px] text-off-white mb-2">QR Code on Every Canvas</h4>
+            <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.65;">
+              A site-specific QR code is printed into the canvas wrap surrounding every screen. It links to a landing page showing current content, advertiser information, and a booking CTA. Scan data builds a per-location audience analytics asset that improves pricing over time.
+            </p>
+          </div>
+          <div class="reveal text-center md:text-left">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" class="text-cyan mb-4 mx-auto md:mx-0"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" /><polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="1.5" /><line x1="9" y1="13" x2="15" y2="13" stroke="currentColor" stroke-width="1" opacity="0.5" /><line x1="9" y1="17" x2="13" y2="17" stroke="currentColor" stroke-width="1" opacity="0.5" /></svg>
+            <h4 class="font-grotesk font-bold text-[16px] text-off-white mb-2">Planning Consent: Always</h4>
+            <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.65;">
+              Advertisement consent from the local planning authority is required for every DigiSite installation, without exception, before a single screen goes live. DigiSite funds and manages every application. All partnership agreements are conditional on consent being granted.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Scheme selector active state
+  const panels = document.querySelectorAll('.scheme-panel');
+  const selectorItems = document.querySelectorAll('.scheme-selector-item');
+
+  const panelObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        selectorItems.forEach(item => {
+          const isActive = (item as HTMLElement).dataset.target === id;
+          item.classList.toggle('active', isActive);
+          if (isActive) {
+            item.classList.remove('text-mid-grey', 'border-transparent');
+            item.classList.add('text-off-white');
+            // Set border color based on scheme
+            const isAmber = id === 'scheme-landlords' || id === 'scheme-events';
+            (item as HTMLElement).style.borderBottomColor = isAmber ? '#F5A623' : '#00D4FF';
+          } else {
+            item.classList.add('text-mid-grey', 'border-transparent');
+            item.classList.remove('text-off-white');
+            (item as HTMLElement).style.borderBottomColor = 'transparent';
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  panels.forEach(panel => panelObserver.observe(panel));
+
+  // Selector click scrolls to panel
+  selectorItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const targetId = (item as HTMLElement).dataset.target;
+      if (targetId) {
+        const target = document.getElementById(targetId);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Pre-selection function for contact form
+  (window as any).scrollToContact = function(scheme: string) {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      const targetBtn = document.querySelector(`[data-scheme="${scheme}"]`) as HTMLElement;
+      if (targetBtn) targetBtn.click();
+    }, 800);
+  };
+</script>
