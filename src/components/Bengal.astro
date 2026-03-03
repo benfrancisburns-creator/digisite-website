@@ -2,38 +2,38 @@
 // Bengal.astro — DigiSite AI chat assistant
 ---
 
-<div id="digibot-root">
+<div id="bengal-root">
   <!-- Bubble button -->
   <button
-    id="digibot-toggle"
+    id="bengal-toggle"
     aria-label="Open Bengal chat"
-    class="digibot-bubble"
+    class="bengal-bubble"
   >
-    <svg id="digibot-icon-chat" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <svg id="bengal-icon-chat" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
     </svg>
-    <svg id="digibot-icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+    <svg id="bengal-icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none">
       <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
     </svg>
   </button>
 
   <!-- Notification dot -->
-  <span id="digibot-dot" class="digibot-dot"></span>
+  <span id="bengal-dot" class="bengal-dot"></span>
 
   <!-- Chat window -->
-  <div id="digibot-window" class="digibot-window" aria-hidden="true">
+  <div id="bengal-window" class="bengal-window" aria-hidden="true">
     <!-- Header -->
-    <div class="digibot-header">
-      <div class="digibot-header-left">
-        <div class="digibot-avatar">B</div>
+    <div class="bengal-header">
+      <div class="bengal-header-left">
+        <div class="bengal-avatar">B</div>
         <div>
-          <div class="digibot-name">Bengal</div>
-          <div class="digibot-status">
-            <span class="digibot-online-dot"></span> Online
+          <div class="bengal-name">Bengal</div>
+          <div class="bengal-status">
+            <span class="bengal-online-dot"></span> Online
           </div>
         </div>
       </div>
-      <button id="digibot-close-btn" aria-label="Close chat" class="digibot-close-btn">
+      <button id="bengal-close-btn" aria-label="Close chat" class="bengal-close-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
@@ -41,19 +41,19 @@
     </div>
 
     <!-- Messages -->
-    <div id="digibot-messages" class="digibot-messages"></div>
+    <div id="bengal-messages" class="bengal-messages"></div>
 
     <!-- Input area -->
-    <div class="digibot-input-area">
+    <div class="bengal-input-area">
       <input
-        id="digibot-input"
+        id="bengal-input"
         type="text"
         placeholder="Ask me anything…"
         autocomplete="off"
         maxlength="500"
-        class="digibot-input"
+        class="bengal-input"
       />
-      <button id="digibot-send" aria-label="Send" class="digibot-send-btn">
+      <button id="bengal-send" aria-label="Send" class="bengal-send-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
         </svg>
@@ -61,13 +61,13 @@
     </div>
 
     <!-- Footer -->
-    <div class="digibot-footer">Powered by Bengal AI</div>
+    <div class="bengal-footer">Powered by Bengal AI</div>
   </div>
 </div>
 
 <style>
   /* ── Layout ─────────────────────────────────────── */
-  #digibot-root {
+  #bengal-root {
     position: fixed;
     bottom: 28px;
     right: 28px;
@@ -76,7 +76,7 @@
   }
 
   /* ── Bubble button ───────────────────────────────── */
-  .digibot-bubble {
+  .bengal-bubble {
     width: 58px;
     height: 58px;
     border-radius: 50%;
@@ -92,13 +92,13 @@
     position: relative;
     z-index: 2;
   }
-  .digibot-bubble:hover {
+  .bengal-bubble:hover {
     transform: scale(1.08);
     box-shadow: 0 6px 28px rgba(0, 212, 255, 0.6);
   }
 
   /* ── Notification dot ────────────────────────────── */
-  .digibot-dot {
+  .bengal-dot {
     position: absolute;
     top: 0;
     right: 0;
@@ -108,16 +108,16 @@
     border: 2px solid #fff;
     border-radius: 50%;
     display: block;
-    animation: digibot-pulse 2s infinite;
+    animation: bengal-pulse 2s infinite;
   }
-  .digibot-dot.hidden { display: none; }
-  @keyframes digibot-pulse {
+  .bengal-dot.hidden { display: none; }
+  @keyframes bengal-pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.2); }
   }
 
   /* ── Chat window ─────────────────────────────────── */
-  .digibot-window {
+  .bengal-window {
     position: absolute;
     bottom: 72px;
     right: 0;
@@ -135,14 +135,14 @@
     pointer-events: none;
     transition: opacity 0.22s ease, transform 0.22s ease;
   }
-  .digibot-window.open {
+  .bengal-window.open {
     opacity: 1;
     transform: translateY(0) scale(1);
     pointer-events: all;
   }
 
   /* ── Header ──────────────────────────────────────── */
-  .digibot-header {
+  .bengal-header {
     background: #0D1B2A;
     padding: 14px 16px;
     display: flex;
@@ -150,12 +150,12 @@
     justify-content: space-between;
     flex-shrink: 0;
   }
-  .digibot-header-left {
+  .bengal-header-left {
     display: flex;
     align-items: center;
     gap: 10px;
   }
-  .digibot-avatar {
+  .bengal-avatar {
     width: 36px;
     height: 36px;
     border-radius: 50%;
@@ -168,13 +168,13 @@
     color: #0D1B2A;
     flex-shrink: 0;
   }
-  .digibot-name {
+  .bengal-name {
     font-weight: 700;
     font-size: 14px;
     color: #ffffff;
     letter-spacing: 0.02em;
   }
-  .digibot-status {
+  .bengal-status {
     font-size: 11px;
     color: #8A9BB0;
     display: flex;
@@ -182,14 +182,14 @@
     gap: 4px;
     margin-top: 1px;
   }
-  .digibot-online-dot {
+  .bengal-online-dot {
     width: 7px;
     height: 7px;
     background: #22c55e;
     border-radius: 50%;
     display: inline-block;
   }
-  .digibot-close-btn {
+  .bengal-close-btn {
     background: none;
     border: none;
     color: #8A9BB0;
@@ -200,10 +200,10 @@
     align-items: center;
     transition: color 0.15s;
   }
-  .digibot-close-btn:hover { color: #ffffff; }
+  .bengal-close-btn:hover { color: #ffffff; }
 
   /* ── Messages ────────────────────────────────────── */
-  .digibot-messages {
+  .bengal-messages {
     flex: 1;
     overflow-y: auto;
     padding: 16px;
@@ -213,32 +213,32 @@
     scroll-behavior: smooth;
     background: #0F2035;
   }
-  .digibot-messages::-webkit-scrollbar { width: 4px; }
-  .digibot-messages::-webkit-scrollbar-track { background: transparent; }
-  .digibot-messages::-webkit-scrollbar-thumb { background: #2A3F52; border-radius: 4px; }
+  .bengal-messages::-webkit-scrollbar { width: 4px; }
+  .bengal-messages::-webkit-scrollbar-track { background: transparent; }
+  .bengal-messages::-webkit-scrollbar-thumb { background: #2A3F52; border-radius: 4px; }
 
   /* Message bubbles */
-  .digibot-msg {
+  .bengal-msg {
     max-width: 84%;
     padding: 10px 14px;
     border-radius: 14px;
     font-size: 13.5px;
     line-height: 1.5;
     word-break: break-word;
-    animation: digibot-fadein 0.18s ease;
+    animation: bengal-fadein 0.18s ease;
   }
-  @keyframes digibot-fadein {
+  @keyframes bengal-fadein {
     from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .digibot-msg.bot {
+  .bengal-msg.bot {
     background: #162236;
     color: #F7F9FC !important;
     border: 1px solid rgba(0, 212, 255, 0.12);
     border-bottom-left-radius: 4px;
     align-self: flex-start;
   }
-  .digibot-msg.user {
+  .bengal-msg.user {
     background: #00D4FF;
     color: #0D1B2A !important;
     border-bottom-right-radius: 4px;
@@ -246,7 +246,7 @@
   }
 
   /* Typing indicator */
-  .digibot-typing {
+  .bengal-typing {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -257,29 +257,29 @@
     border-bottom-left-radius: 4px;
     align-self: flex-start;
   }
-  .digibot-typing span {
+  .bengal-typing span {
     width: 6px;
     height: 6px;
     background: #8A9BB0;
     border-radius: 50%;
-    animation: digibot-bounce 1.2s infinite;
+    animation: bengal-bounce 1.2s infinite;
   }
-  .digibot-typing span:nth-child(2) { animation-delay: 0.2s; }
-  .digibot-typing span:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes digibot-bounce {
+  .bengal-typing span:nth-child(2) { animation-delay: 0.2s; }
+  .bengal-typing span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bengal-bounce {
     0%, 60%, 100% { transform: translateY(0); }
     30% { transform: translateY(-5px); }
   }
 
   /* Suggested questions */
-  .digibot-suggestions {
+  .bengal-suggestions {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
     margin-top: 4px;
     align-self: flex-start;
   }
-  .digibot-suggestion-btn {
+  .bengal-suggestion-btn {
     background: rgba(0, 212, 255, 0.08);
     border: 1px solid rgba(0, 212, 255, 0.25);
     color: #00D4FF;
@@ -290,13 +290,13 @@
     transition: background 0.15s, border-color 0.15s;
     font-family: inherit;
   }
-  .digibot-suggestion-btn:hover {
+  .bengal-suggestion-btn:hover {
     background: rgba(0, 212, 255, 0.15);
     border-color: #00D4FF;
   }
 
   /* ── Input area ──────────────────────────────────── */
-  .digibot-input-area {
+  .bengal-input-area {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -305,7 +305,7 @@
     border-top: 1px solid rgba(0, 212, 255, 0.1);
     flex-shrink: 0;
   }
-  .digibot-input {
+  .bengal-input {
     flex: 1;
     border: 1.5px solid #2A3F52;
     border-radius: 10px;
@@ -317,9 +317,9 @@
     outline: none;
     transition: border-color 0.15s;
   }
-  .digibot-input:focus { border-color: #00D4FF; background: #162236; }
-  .digibot-input::placeholder { color: #8A9BB0; }
-  .digibot-send-btn {
+  .bengal-input:focus { border-color: #00D4FF; background: #162236; }
+  .bengal-input::placeholder { color: #8A9BB0; }
+  .bengal-send-btn {
     width: 36px;
     height: 36px;
     border-radius: 10px;
@@ -333,11 +333,11 @@
     flex-shrink: 0;
     transition: background 0.15s;
   }
-  .digibot-send-btn:hover { background: #33DFFF; }
-  .digibot-send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .bengal-send-btn:hover { background: #33DFFF; }
+  .bengal-send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
   /* ── Footer ──────────────────────────────────────── */
-  .digibot-footer {
+  .bengal-footer {
     text-align: center;
     font-size: 10.5px;
     color: #8A9BB0;
@@ -349,8 +349,8 @@
 
   /* ── Mobile ──────────────────────────────────────── */
   @media (max-width: 420px) {
-    #digibot-root { bottom: 16px; right: 16px; }
-    .digibot-window { width: calc(100vw - 32px); right: 0; }
+    #bengal-root { bottom: 16px; right: 16px; }
+    .bengal-window { width: calc(100vw - 32px); right: 0; }
   }
 </style>
 
@@ -364,15 +364,15 @@
     "What's DigiPerim?",
   ];
 
-  const toggle = document.getElementById('digibot-toggle');
-  const window_ = document.getElementById('digibot-window');
-  const closeBtn = document.getElementById('digibot-close-btn');
-  const input = document.getElementById('digibot-input');
-  const sendBtn = document.getElementById('digibot-send');
-  const messagesEl = document.getElementById('digibot-messages');
-  const iconChat = document.getElementById('digibot-icon-chat');
-  const iconClose = document.getElementById('digibot-icon-close');
-  const dot = document.getElementById('digibot-dot');
+  const toggle = document.getElementById('bengal-toggle');
+  const window_ = document.getElementById('bengal-window');
+  const closeBtn = document.getElementById('bengal-close-btn');
+  const input = document.getElementById('bengal-input');
+  const sendBtn = document.getElementById('bengal-send');
+  const messagesEl = document.getElementById('bengal-messages');
+  const iconChat = document.getElementById('bengal-icon-chat');
+  const iconClose = document.getElementById('bengal-icon-close');
+  const dot = document.getElementById('bengal-dot');
 
   let isOpen = false;
   let isTyping = false;
@@ -410,16 +410,16 @@
 
   function appendBotMessage(text, showSuggestions = false) {
     const msg = document.createElement('div');
-    msg.className = 'digibot-msg bot';
+    msg.className = 'bengal-msg bot';
     msg.textContent = text;
     messagesEl.appendChild(msg);
 
     if (showSuggestions) {
       const suggestionsEl = document.createElement('div');
-      suggestionsEl.className = 'digibot-suggestions';
+      suggestionsEl.className = 'bengal-suggestions';
       SUGGESTIONS.forEach(q => {
         const btn = document.createElement('button');
-        btn.className = 'digibot-suggestion-btn';
+        btn.className = 'bengal-suggestion-btn';
         btn.textContent = q;
         btn.addEventListener('click', () => {
           suggestionsEl.remove();
@@ -435,7 +435,7 @@
 
   function appendUserMessage(text) {
     const msg = document.createElement('div');
-    msg.className = 'digibot-msg user';
+    msg.className = 'bengal-msg user';
     msg.textContent = text;
     messagesEl.appendChild(msg);
     scrollToBottom();
@@ -443,15 +443,15 @@
 
   function showTyping() {
     const el = document.createElement('div');
-    el.className = 'digibot-typing';
-    el.id = 'digibot-typing-indicator';
+    el.className = 'bengal-typing';
+    el.id = 'bengal-typing-indicator';
     el.innerHTML = '<span></span><span></span><span></span>';
     messagesEl.appendChild(el);
     scrollToBottom();
   }
 
   function removeTyping() {
-    const el = document.getElementById('digibot-typing-indicator');
+    const el = document.getElementById('bengal-typing-indicator');
     if (el) el.remove();
   }
 
@@ -468,7 +468,7 @@
     showTyping();
 
     try {
-      const res = await fetch('https://digibot-chat.benfrancisburns.workers.dev', {
+      const res = await fetch('https://bengal-chat.benfrancisburns.workers.dev', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: conversationHistory }),
