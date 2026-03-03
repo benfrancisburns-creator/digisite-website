@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import DigiBot from '../components/DigiBot.astro';
 
 interface Props {
   title?: string;
@@ -34,6 +35,8 @@ const {
   </head>
   <body class="bg-navy text-off-white font-grotesk">
     <slot />
+
+    <DigiBot />
 
     <!-- IntersectionObserver for reveal animations -->
     <script>

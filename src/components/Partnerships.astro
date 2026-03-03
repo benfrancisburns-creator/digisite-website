@@ -111,7 +111,7 @@
         </div>
         <div>
           <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">MINIMUM TERM</p>
-          <p class="font-grotesk text-[13px] text-mid-grey">3 months (co-terminus with scaffold)</p>
+          <p class="font-grotesk text-[13px] text-mid-grey">6 months (co-terminus with scaffold)</p>
         </div>
         <div>
           <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.15em] text-cyan mb-1">PAYMENT</p>
@@ -429,15 +429,31 @@
         });
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.2, rootMargin: '-80px 0px -40% 0px' });
 
   panels.forEach(panel => panelObserver.observe(panel));
 
-  // Selector click scrolls to panel
+  // Selector click scrolls to panel and updates active state
   selectorItems.forEach(item => {
     item.addEventListener('click', () => {
       const targetId = (item as HTMLElement).dataset.target;
       if (targetId) {
+        // Immediately update active state on click
+        selectorItems.forEach(si => {
+          const isActive = (si as HTMLElement).dataset.target === targetId;
+          si.classList.toggle('active', isActive);
+          if (isActive) {
+            si.classList.remove('text-mid-grey', 'border-transparent');
+            si.classList.add('text-off-white');
+            const isAmber = targetId === 'scheme-landlords' || targetId === 'scheme-events';
+            (si as HTMLElement).style.borderBottomColor = isAmber ? '#F5A623' : '#00D4FF';
+          } else {
+            si.classList.add('text-mid-grey', 'border-transparent');
+            si.classList.remove('text-off-white');
+            (si as HTMLElement).style.borderBottomColor = 'transparent';
+          }
+        });
+
         const target = document.getElementById(targetId);
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }

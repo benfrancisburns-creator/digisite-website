@@ -75,9 +75,6 @@ const phases = [
               phase.isCurrent ? 'border-cyan bg-cyan/[0.15]' : 'border-cyan/40 bg-cyan/[0.06]',
             ]}>
               <span class="font-mono font-semibold text-[16px] text-cyan">{phase.num}</span>
-              {phase.isCurrent && (
-                <span class="absolute w-2 h-2 rounded-full bg-cyan animate-pulse"></span>
-              )}
             </div>
 
             <div class="pl-16 md:pl-0">

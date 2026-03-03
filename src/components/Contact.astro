@@ -3,10 +3,10 @@
 
 const schemes = [
   { id: 'construction', label: 'Construction & Development', color: 'cyan' },
-  { id: 'landlords', label: 'Landlords & Landowners', color: 'amber' },
+  { id: 'landlords', label: 'Landlords & Landowners', color: 'cyan' },
   { id: 'commercial', label: 'Commercial & Public', color: 'cyan' },
-  { id: 'events', label: 'Events', color: 'amber' },
-  { id: 'investment', label: 'Investment', color: 'amber' },
+  { id: 'events', label: 'Events', color: 'cyan' },
+  { id: 'investment', label: 'Investment', color: 'cyan' },
 ];
 ---
 
@@ -26,7 +26,7 @@ const schemes = [
           Whether you're a scaffold company with a site pipeline, a landowner with an underperforming asset, a commercial estate looking to generate income, an event organiser, or an investor &mdash; select your route below and tell us about your situation.
         </p>
         <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.12em] text-cyan">
-          &rarr; We respond to every enquiry within 48 hours.
+          &rarr; Register now and be first in line as we progress.
         </p>
       </div>
 
@@ -245,16 +245,6 @@ const schemes = [
                 </select>
               </div>
               <div>
-                <label for="investment-stage" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">INVESTMENT STAGE</label>
-                <select name="investment-stage" id="investment-stage" class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] focus:border-cyan focus:outline-none transition-all duration-200">
-                  <option value="">Select...</option>
-                  <option>Seed / pre-revenue</option>
-                  <option>Series A</option>
-                  <option>Growth capital</option>
-                  <option>Not sure yet</option>
-                </select>
-              </div>
-              <div>
                 <label for="how-found" class="block font-mono font-semibold text-[13px] uppercase tracking-[0.15em] text-mid-grey mb-2">HOW DID YOU FIND US?</label>
                 <select name="how-found" id="how-found" class="w-full px-4 py-3.5 bg-cyan/[0.04] border border-cyan/[0.15] rounded text-off-white font-grotesk text-[15px] focus:border-cyan focus:outline-none transition-all duration-200">
                   <option value="">Select...</option>
@@ -277,7 +267,7 @@ const schemes = [
             <button type="submit" id="submit-btn" disabled
               class="w-full mt-4 px-10 py-4 bg-cyan text-navy font-grotesk font-semibold text-[15px] tracking-[0.04em] rounded-sm transition-all duration-200 opacity-40 cursor-not-allowed hover:enabled:shadow-[0_0_24px_rgba(0,212,255,0.35)]"
               style="background: #00D4FF;">
-              Send Enquiry &rarr;
+              Register Interest &rarr;
             </button>
           </form>
         </div>
@@ -287,18 +277,21 @@ const schemes = [
     <!-- What happens next — moved below form -->
     <div class="reveal mt-16 border border-cyan/[0.15] rounded-md p-8 md:p-10" style="background: rgba(0, 212, 255, 0.02);">
       <p class="font-mono font-semibold text-[18px] text-cyan uppercase tracking-[0.18em] mb-4">WHAT HAPPENS NEXT</p>
+      <p class="font-grotesk text-[15px] text-mid-grey mb-6" style="line-height: 1.65; max-width: 700px;">
+        DigiSite is currently in its conceptual development stage. We are actively building the operational, commercial and regulatory framework to bring this to market. By registering your interest now, you'll be among the first we speak to as we progress.
+      </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
-          <p class="font-mono font-semibold text-[13px] text-off-white mb-1">01 &mdash; Review</p>
-          <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.6;">We review your enquiry and assess the opportunity within 48 hours.</p>
+          <p class="font-mono font-semibold text-[13px] text-off-white mb-1">01 &mdash; Register Interest</p>
+          <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.6;">We receive your enquiry and add you to our early interest register for your chosen scheme.</p>
         </div>
         <div>
-          <p class="font-mono font-semibold text-[13px] text-off-white mb-1">02 &mdash; Assessment</p>
-          <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.6;">We prepare a site-specific or scheme-specific proposal tailored to your situation.</p>
+          <p class="font-mono font-semibold text-[13px] text-off-white mb-1">02 &mdash; Stay Updated</p>
+          <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.6;">As DigiSite reaches key milestones, we'll keep you informed on progress and next steps relevant to your interest.</p>
         </div>
         <div>
-          <p class="font-mono font-semibold text-[13px] text-off-white mb-1">03 &mdash; Conversation</p>
-          <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.6;">We arrange a call or meeting to walk through the proposal and next steps.</p>
+          <p class="font-mono font-semibold text-[13px] text-off-white mb-1">03 &mdash; First Conversations</p>
+          <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.6;">When we're ready to move forward, early registrants will be the first people we contact to explore opportunities together.</p>
         </div>
       </div>
     </div>
@@ -367,11 +360,11 @@ const schemes = [
 
       const scheme = schemeInput.value;
       const messages: Record<string, string> = {
-        construction: "We'll review your site pipeline and come back with an initial assessment.",
-        landlords: "We'll look at your site and come back with an audience data report for your location.",
-        commercial: "We'll review your estate details and prepare a proposal.",
-        events: "We'll prepare a costed proposal for your event within 48 hours.",
-        investment: "We'll be in touch to arrange a conversation.",
+        construction: "We've noted your site pipeline details and will be in touch as we progress.",
+        landlords: "We've noted your site details and will be in touch as we progress.",
+        commercial: "We've noted your estate details and will be in touch as we progress.",
+        events: "We've noted your event details and will be in touch as we progress.",
+        investment: "We've noted your interest and will be in touch as we progress.",
       };
 
       const container = document.getElementById('contact-form-container')!;
@@ -381,8 +374,8 @@ const schemes = [
             <polygon points="36,4 64,20 64,52 36,68 8,52 8,20" fill="#00D4FF"/>
             <polygon points="36,18 52,27 52,45 36,54 20,45 20,27" fill="#0D1B2A"/>
           </svg>
-          <h2 class="font-grotesk font-bold text-[32px] text-off-white mb-3">Thank you.</h2>
-          <p class="font-grotesk text-[16px] text-mid-grey mb-4">We've received your enquiry and we'll be in touch within 48 hours.</p>
+          <h2 class="font-grotesk font-bold text-[32px] text-off-white mb-3">Interest registered.</h2>
+          <p class="font-grotesk text-[16px] text-mid-grey mb-4">Thank you for your early interest in DigiSite. You're now on our register.</p>
           <p class="font-grotesk font-medium text-[15px] text-off-white">${messages[scheme] || ''}</p>
         </div>
       `;

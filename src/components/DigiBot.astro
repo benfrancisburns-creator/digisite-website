@@ -1,0 +1,507 @@
+---
+// DigiBot.astro — drop into your Astro layout, just above </body>
+---
+
+<div id="digibot-root">
+  <!-- Bubble button -->
+  <button
+    id="digibot-toggle"
+    aria-label="Open DigiBot chat"
+    class="digibot-bubble"
+  >
+    <svg id="digibot-icon-chat" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+    <svg id="digibot-icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- Notification dot -->
+  <span id="digibot-dot" class="digibot-dot"></span>
+
+  <!-- Chat window -->
+  <div id="digibot-window" class="digibot-window" aria-hidden="true">
+    <!-- Header -->
+    <div class="digibot-header">
+      <div class="digibot-header-left">
+        <div class="digibot-avatar">D</div>
+        <div>
+          <div class="digibot-name">DigiBot</div>
+          <div class="digibot-status">
+            <span class="digibot-online-dot"></span> Online
+          </div>
+        </div>
+      </div>
+      <button id="digibot-close-btn" aria-label="Close chat" class="digibot-close-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div id="digibot-messages" class="digibot-messages"></div>
+
+    <!-- Input area -->
+    <div class="digibot-input-area">
+      <input
+        id="digibot-input"
+        type="text"
+        placeholder="Ask me anything…"
+        autocomplete="off"
+        maxlength="500"
+        class="digibot-input"
+      />
+      <button id="digibot-send" aria-label="Send" class="digibot-send-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="digibot-footer">Powered by DigiSite AI</div>
+  </div>
+</div>
+
+<style>
+  /* ── Layout ─────────────────────────────────────── */
+  #digibot-root {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* ── Bubble button ───────────────────────────────── */
+  .digibot-bubble {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00D4FF 0%, #0099CC 100%);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0D1B2A;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    z-index: 2;
+  }
+  .digibot-bubble:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 28px rgba(0, 212, 255, 0.6);
+  }
+
+  /* ── Notification dot ────────────────────────────── */
+  .digibot-dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 14px;
+    height: 14px;
+    background: #F5A623;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: block;
+    animation: digibot-pulse 2s infinite;
+  }
+  .digibot-dot.hidden { display: none; }
+  @keyframes digibot-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  /* ── Chat window ─────────────────────────────────── */
+  .digibot-window {
+    position: absolute;
+    bottom: 72px;
+    right: 0;
+    width: 360px;
+    max-height: 520px;
+    background: #0F2035;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 212, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+  }
+  .digibot-window.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+  }
+
+  /* ── Header ──────────────────────────────────────── */
+  .digibot-header {
+    background: #0D1B2A;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .digibot-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .digibot-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00D4FF, #0077AA);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    color: #0D1B2A;
+    flex-shrink: 0;
+  }
+  .digibot-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+  }
+  .digibot-status {
+    font-size: 11px;
+    color: #8A9BB0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 1px;
+  }
+  .digibot-online-dot {
+    width: 7px;
+    height: 7px;
+    background: #22c55e;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .digibot-close-btn {
+    background: none;
+    border: none;
+    color: #8A9BB0;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    transition: color 0.15s;
+  }
+  .digibot-close-btn:hover { color: #ffffff; }
+
+  /* ── Messages ────────────────────────────────────── */
+  .digibot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    scroll-behavior: smooth;
+    background: #0F2035;
+  }
+  .digibot-messages::-webkit-scrollbar { width: 4px; }
+  .digibot-messages::-webkit-scrollbar-track { background: transparent; }
+  .digibot-messages::-webkit-scrollbar-thumb { background: #2A3F52; border-radius: 4px; }
+
+  /* Message bubbles */
+  .digibot-msg {
+    max-width: 84%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    word-break: break-word;
+    animation: digibot-fadein 0.18s ease;
+  }
+  @keyframes digibot-fadein {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .digibot-msg.bot {
+    background: #162236;
+    color: #F7F9FC !important;
+    border: 1px solid rgba(0, 212, 255, 0.12);
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+  }
+  .digibot-msg.user {
+    background: #00D4FF;
+    color: #0D1B2A !important;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+  }
+
+  /* Typing indicator */
+  .digibot-typing {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 14px;
+    background: #162236;
+    border: 1px solid rgba(0, 212, 255, 0.12);
+    border-radius: 14px;
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+  }
+  .digibot-typing span {
+    width: 6px;
+    height: 6px;
+    background: #8A9BB0;
+    border-radius: 50%;
+    animation: digibot-bounce 1.2s infinite;
+  }
+  .digibot-typing span:nth-child(2) { animation-delay: 0.2s; }
+  .digibot-typing span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes digibot-bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+  }
+
+  /* Suggested questions */
+  .digibot-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+    align-self: flex-start;
+  }
+  .digibot-suggestion-btn {
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid rgba(0, 212, 255, 0.25);
+    color: #00D4FF;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    font-family: inherit;
+  }
+  .digibot-suggestion-btn:hover {
+    background: rgba(0, 212, 255, 0.15);
+    border-color: #00D4FF;
+  }
+
+  /* ── Input area ──────────────────────────────────── */
+  .digibot-input-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px;
+    background: #0D1B2A;
+    border-top: 1px solid rgba(0, 212, 255, 0.1);
+    flex-shrink: 0;
+  }
+  .digibot-input {
+    flex: 1;
+    border: 1.5px solid #2A3F52;
+    border-radius: 10px;
+    padding: 9px 12px;
+    font-size: 13.5px;
+    font-family: inherit;
+    color: #F7F9FC;
+    background: #0F2035;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .digibot-input:focus { border-color: #00D4FF; background: #162236; }
+  .digibot-input::placeholder { color: #8A9BB0; }
+  .digibot-send-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #00D4FF;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0D1B2A;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .digibot-send-btn:hover { background: #33DFFF; }
+  .digibot-send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* ── Footer ──────────────────────────────────────── */
+  .digibot-footer {
+    text-align: center;
+    font-size: 10.5px;
+    color: #8A9BB0;
+    padding: 6px 0 8px;
+    background: #0D1B2A;
+    border-top: 1px solid rgba(0, 212, 255, 0.08);
+    flex-shrink: 0;
+  }
+
+  /* ── Mobile ──────────────────────────────────────── */
+  @media (max-width: 420px) {
+    #digibot-root { bottom: 16px; right: 16px; }
+    .digibot-window { width: calc(100vw - 32px); right: 0; }
+  }
+</style>
+
+<script>
+  const GREETING = "Hi there 👋 I'm DigiBot, DigiSite's AI assistant. I can tell you about our advertising screens, partnership schemes, or revenue potential. What would you like to know?";
+
+  const SUGGESTIONS = [
+    "How does the revenue model work?",
+    "We're a scaffold company — how do we partner?",
+    "Tell me about investor opportunity",
+    "What's DigiPerim?",
+  ];
+
+  const toggle = document.getElementById('digibot-toggle');
+  const window_ = document.getElementById('digibot-window');
+  const closeBtn = document.getElementById('digibot-close-btn');
+  const input = document.getElementById('digibot-input');
+  const sendBtn = document.getElementById('digibot-send');
+  const messagesEl = document.getElementById('digibot-messages');
+  const iconChat = document.getElementById('digibot-icon-chat');
+  const iconClose = document.getElementById('digibot-icon-close');
+  const dot = document.getElementById('digibot-dot');
+
+  let isOpen = false;
+  let isTyping = false;
+  let hasOpened = false;
+  let conversationHistory = [];
+
+  function openChat() {
+    isOpen = true;
+    window_.classList.add('open');
+    window_.setAttribute('aria-hidden', 'false');
+    iconChat.style.display = 'none';
+    iconClose.style.display = 'block';
+    dot.classList.add('hidden');
+    if (!hasOpened) {
+      hasOpened = true;
+      appendBotMessage(GREETING, true);
+    }
+    setTimeout(() => input.focus(), 220);
+  }
+
+  function closeChat() {
+    isOpen = false;
+    window_.classList.remove('open');
+    window_.setAttribute('aria-hidden', 'true');
+    iconChat.style.display = 'block';
+    iconClose.style.display = 'none';
+  }
+
+  toggle.addEventListener('click', () => isOpen ? closeChat() : openChat());
+  closeBtn.addEventListener('click', closeChat);
+
+  function scrollToBottom() {
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function appendBotMessage(text, showSuggestions = false) {
+    const msg = document.createElement('div');
+    msg.className = 'digibot-msg bot';
+    msg.textContent = text;
+    messagesEl.appendChild(msg);
+
+    if (showSuggestions) {
+      const suggestionsEl = document.createElement('div');
+      suggestionsEl.className = 'digibot-suggestions';
+      SUGGESTIONS.forEach(q => {
+        const btn = document.createElement('button');
+        btn.className = 'digibot-suggestion-btn';
+        btn.textContent = q;
+        btn.addEventListener('click', () => {
+          suggestionsEl.remove();
+          handleSend(q);
+        });
+        suggestionsEl.appendChild(btn);
+      });
+      messagesEl.appendChild(suggestionsEl);
+    }
+
+    scrollToBottom();
+  }
+
+  function appendUserMessage(text) {
+    const msg = document.createElement('div');
+    msg.className = 'digibot-msg user';
+    msg.textContent = text;
+    messagesEl.appendChild(msg);
+    scrollToBottom();
+  }
+
+  function showTyping() {
+    const el = document.createElement('div');
+    el.className = 'digibot-typing';
+    el.id = 'digibot-typing-indicator';
+    el.innerHTML = '<span></span><span></span><span></span>';
+    messagesEl.appendChild(el);
+    scrollToBottom();
+  }
+
+  function removeTyping() {
+    const el = document.getElementById('digibot-typing-indicator');
+    if (el) el.remove();
+  }
+
+  async function handleSend(overrideText) {
+    const text = overrideText || input.value.trim();
+    if (!text || isTyping) return;
+
+    input.value = '';
+    appendUserMessage(text);
+    conversationHistory.push({ role: 'user', content: text });
+
+    isTyping = true;
+    sendBtn.disabled = true;
+    showTyping();
+
+    try {
+      const res = await fetch('https://digibot-chat.benfrancisburns.workers.dev', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: conversationHistory }),
+      });
+
+      const data = await res.json();
+      const reply = data.reply || "Sorry, something went wrong. Please try again.";
+
+      removeTyping();
+      appendBotMessage(reply);
+      conversationHistory.push({ role: 'assistant', content: reply });
+
+    } catch (err) {
+      removeTyping();
+      appendBotMessage("I'm having trouble connecting right now. Please try again in a moment.");
+    }
+
+    isTyping = false;
+    sendBtn.disabled = false;
+    input.focus();
+  }
+
+  sendBtn.addEventListener('click', () => handleSend());
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  });
+
+  // Auto-open after 4 seconds on first visit
+  setTimeout(() => {
+    if (!isOpen) openChat();
+  }, 4000);
+</script>
