@@ -468,12 +468,16 @@
     showTyping();
 
     try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 10000);
       const res = await fetch('https://digibot-chat.benfrancisburns.workers.dev', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: conversationHistory }),
+        signal: controller.signal,
       });
 
+      clearTimeout(timeout);
       const data = await res.json();
       const reply = data.reply || "Sorry, something went wrong. Please try again.";
 
@@ -500,8 +504,5 @@
     }
   });
 
-  // Auto-open after 4 seconds on first visit
-  setTimeout(() => {
-    if (!isOpen) openChat();
-  }, 4000);
+  // Chat opens on user click only — no auto-open
 </script>
