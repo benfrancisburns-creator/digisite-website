@@ -367,8 +367,8 @@ The following materials exist and can be shared/uploaded for reference:
 **Tech stack for build:**
 - Framework: Astro or plain HTML/CSS/JS
 - Styling: Tailwind CSS
-- Forms: Netlify Forms
-- Hosting: Netlify or Vercel
+- Forms: Cloudflare Worker + Resend (email delivery)
+- Hosting: Cloudflare Pages
 - Domain: digiscaff.co.uk pointed via DNS
 
 ---

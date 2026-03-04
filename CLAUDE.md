@@ -32,8 +32,8 @@ The website is a single-page scrolling site designed to attract construction par
 | Framework | **Astro** — static site builder with component architecture |
 | Styling | **Tailwind CSS** — utility-first, configured with DigiSite brand tokens |
 | Fonts | Google Fonts — **Space Grotesk** (display/body) + **IBM Plex Mono** (data/mono accent) |
-| Forms | **Netlify Forms** — zero server-side code |
-| Hosting | **Netlify** — static deployment, domain pointed via DNS CNAME |
+| Forms | **Cloudflare Worker** (`digisite-form`) + **Resend** (email delivery) — see `worker-form/` |
+| Hosting | **Cloudflare Pages** — static deployment |
 | Animations | Vanilla JS IntersectionObserver + CSS transitions (no animation library) |
 | Domain | `digiscaff.co.uk` |
 

@@ -220,7 +220,7 @@ Content to be drafted separately once the company is incorporated and the data p
 - What data we collect (name, email, company from the contact form)
 - How we use it (responding to enquiries, no marketing without consent)
 - How long we keep it
-- Third parties (Netlify processes form submissions)
+- Third parties (Cloudflare Workers processes form submissions; Resend delivers email notifications)
 - Your rights (GDPR rights — access, deletion, portability)
 - Contact for data requests
 
@@ -231,7 +231,7 @@ Content to be drafted separately once the company is incorporated and the data p
 - Social media links — only add if active profiles exist at launch
 - Newsletter signup — not part of Phase 1 commercial model
 - Sitemap links — single page site, no need
-- Cookie banner — required if analytics are added. Phase 1 uses Netlify Analytics (server-side, no cookies). If Google Analytics or similar is added later, a cookie consent mechanism must be implemented at that point.
+- Cookie banner — required if analytics are added. Phase 1 uses no client-side analytics (no cookies). If Google Analytics or similar is added later, a cookie consent mechanism must be implemented at that point.
 - Blog or news links — Phase 1 has no content section
 
 ---

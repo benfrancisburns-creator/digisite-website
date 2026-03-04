@@ -285,10 +285,10 @@ The ASCII border draws `┌─`, `─┐`, `└─`, `─┘` corners with `─`
 Google Fonts (Space Grotesk + IBM Plex Mono) — loaded via `<link>` in Astro layout head.
 
 ### Forms
-**Netlify Forms** — contact form handling. Zero server-side code required.
+**Cloudflare Worker** (`digisite-form`) — receives form submissions and sends email notifications to `info@digiscaff.co.uk` via **Resend**. Worker source in `worker-form/`. Honeypot spam filtering retained.
 
 ### Hosting
-**Netlify** — static deployment. Domain `digiscaff.co.uk` pointed via DNS CNAME to Netlify.
+**Cloudflare Pages** — static deployment. Domain `digiscaff.co.uk` pointed via DNS.
 
 ### Animations
 Vanilla JavaScript IntersectionObserver + CSS transitions. No animation library required for Phase 1.

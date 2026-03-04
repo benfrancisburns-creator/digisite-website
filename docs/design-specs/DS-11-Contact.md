@@ -19,7 +19,7 @@ This is not a generic "get in touch" form. It is five distinct conversations in 
 Each Partnership scheme CTA pre-selects the relevant scheme in this form via the `scrollToContact()` function specified in DS-08. When a user arrives via a scheme CTA, their scheme is already selected and the conditional fields are already visible. This makes the handoff from the Partnerships section completely seamless.
 
 ### Form handling
-Netlify Forms — zero server-side code, built-in spam filtering, email notifications to DigiSite on submission.
+Cloudflare Worker (`digisite-form`) — receives form POST, validates fields, and sends a formatted email notification to `info@digiscaff.co.uk` via Resend. Honeypot spam filtering retained. Worker source in `worker-form/`.
 
 **Section anchor:** `id="contact"`
 
@@ -113,19 +113,18 @@ The ASCII border signals: this is a structured process, not a black box. The for
 `padding: 48px`
 
 ### Form implementation
-Netlify Forms. The `<form>` element requires:
+Cloudflare Worker. The `<form>` element submits via JavaScript `fetch` to the worker endpoint:
 ```html
 <form
   name="digisite-contact"
   method="POST"
-  data-netlify="true"
-  netlify-honeypot="bot-field"
+  id="contact-form"
 >
-  <input type="hidden" name="form-name" value="digisite-contact" />
   <input type="hidden" name="bot-field" class="hidden" />
   <!-- fields -->
 </form>
 ```
+The submit handler POSTs to `https://digisite-form.benfrancisburns.workers.dev` with `application/x-www-form-urlencoded` encoding. On success, the form is replaced with a confirmation message. On failure, an error message is shown with a fallback email address.
 
 ---
 
@@ -161,7 +160,7 @@ On mobile: 2 per row with Investment below
 - Font: IBM Plex Mono 600, 10px, uppercase, `letter-spacing: 0.18em`, `#8A9BB0`
 - Margin-bottom: 12px
 
-**Hidden input — captures selected scheme for Netlify:**
+**Hidden input — captures selected scheme for the worker:**
 ```html
 <input type="hidden" name="scheme" id="scheme-value" value="" />
 ```
@@ -425,23 +424,31 @@ function scrollToContact(scheme) {
 }
 
 // Form success handling
-const form = document.querySelector('[data-netlify]');
+const form = document.getElementById('contact-form');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const formData = new FormData(form);
+  const submitBtn = document.getElementById('submit-btn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
 
   try {
-    await fetch('/', {
+    const response = await fetch('https://digisite-form.benfrancisburns.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString()
     });
+
+    if (!response.ok) throw new Error('Submission failed');
 
     // Replace form with success state
     const scheme = schemeInput.value;
     showSuccessState(scheme);
   } catch (err) {
     console.error('Form submission error:', err);
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Register Interest →';
+    // Show error message with fallback email
   }
 });
 
