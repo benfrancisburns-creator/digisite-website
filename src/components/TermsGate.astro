@@ -7,10 +7,10 @@ import LogoSVG from './LogoSVG.astro';
     <LogoSVG variant="dark" size="nav" />
 
     <p class="terms-gate__text">
-      By continuing you agree to our
-      <a href="/terms" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>
+      Before continuing, please review our
+      <a href="/terms">Terms &amp; Conditions</a>
       and
-      <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+      <a href="/privacy">Privacy Policy</a>.
     </p>
 
     <button id="terms-accept" class="terms-gate__btn" type="button">
@@ -59,11 +59,11 @@ import LogoSVG from './LogoSVG.astro';
 
   .terms-gate__text a {
     color: var(--color-cyan, #00D4FF);
-    text-decoration: none;
+    text-decoration: underline;
   }
 
   .terms-gate__text a:hover {
-    text-decoration: underline;
+    opacity: 0.85;
   }
 
   .terms-gate__btn {

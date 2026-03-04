@@ -1,0 +1,85 @@
+---
+interface Props {
+  otherLabel: string;
+  otherHref: string;
+}
+
+const { otherLabel, otherHref } = Astro.props;
+---
+
+<div id="legal-accept-bar" class="legal-bar">
+  <div class="legal-bar__inner">
+    <a href={otherHref} class="legal-bar__link">{otherLabel}</a>
+    <button id="legal-accept-btn" class="legal-bar__btn" type="button">
+      Accept &amp; Continue to Site
+    </button>
+  </div>
+</div>
+
+<style>
+  .legal-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    background: var(--color-section, #0F2035);
+    border-top: 1px solid rgba(0, 212, 255, 0.15);
+    padding: 16px 24px;
+  }
+
+  .legal-bar__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .legal-bar__link {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    color: var(--color-cyan, #00D4FF);
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+  }
+
+  .legal-bar__link:hover {
+    opacity: 0.85;
+  }
+
+  .legal-bar__btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 8px;
+    background: var(--color-cyan, #00D4FF);
+    color: var(--color-navy, #0D1B2A);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .legal-bar__btn:hover {
+    opacity: 0.85;
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = 'digisite-terms-accepted';
+  const bar = document.getElementById('legal-accept-bar');
+  const btn = document.getElementById('legal-accept-btn');
+
+  // If already accepted, hide the bar
+  if (localStorage.getItem(STORAGE_KEY) === 'true') {
+    bar?.remove();
+  } else {
+    btn?.addEventListener('click', () => {
+      localStorage.setItem(STORAGE_KEY, 'true');
+      window.location.href = '/';
+    });
+  }
+</script>
