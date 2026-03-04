@@ -89,7 +89,11 @@ import LogoSVG from './LogoSVG.astro';
   const gate = document.getElementById('terms-gate');
   const btn = document.getElementById('terms-accept');
 
-  if (localStorage.getItem(STORAGE_KEY) === 'true') {
+  // Skip the gate on /terms and /privacy so users can read them
+  const path = window.location.pathname.replace(/\/+$/, '');
+  const isLegalPage = path === '/terms' || path === '/privacy';
+
+  if (isLegalPage || localStorage.getItem(STORAGE_KEY) === 'true') {
     gate?.remove();
   } else {
     document.body.style.overflow = 'hidden';
