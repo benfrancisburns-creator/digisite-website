@@ -1,0 +1,105 @@
+---
+import LogoSVG from './LogoSVG.astro';
+---
+
+<div id="terms-gate" class="terms-gate" aria-modal="true" role="dialog" aria-label="Terms and Conditions">
+  <div class="terms-gate__card">
+    <LogoSVG variant="dark" size="nav" />
+
+    <p class="terms-gate__text">
+      By continuing you agree to our
+      <a href="/terms" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>
+      and
+      <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+    </p>
+
+    <button id="terms-accept" class="terms-gate__btn" type="button">
+      Accept &amp; Continue
+    </button>
+  </div>
+</div>
+
+<style>
+  .terms-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-navy, #0D1B2A);
+    transition: opacity 0.3s ease;
+  }
+
+  .terms-gate.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .terms-gate__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    max-width: 440px;
+    width: 90%;
+    padding: 48px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: var(--color-section-step, #0F2035);
+    text-align: center;
+  }
+
+  .terms-gate__text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-mid-grey, #8A9BB0);
+  }
+
+  .terms-gate__text a {
+    color: var(--color-cyan, #00D4FF);
+    text-decoration: none;
+  }
+
+  .terms-gate__text a:hover {
+    text-decoration: underline;
+  }
+
+  .terms-gate__btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 8px;
+    background: var(--color-cyan, #00D4FF);
+    color: var(--color-navy, #0D1B2A);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .terms-gate__btn:hover {
+    opacity: 0.85;
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = 'digisite-terms-accepted';
+  const gate = document.getElementById('terms-gate');
+  const btn = document.getElementById('terms-accept');
+
+  if (localStorage.getItem(STORAGE_KEY) === 'true') {
+    gate?.remove();
+  } else {
+    document.body.style.overflow = 'hidden';
+
+    btn?.addEventListener('click', () => {
+      localStorage.setItem(STORAGE_KEY, 'true');
+      gate?.classList.add('hidden');
+      document.body.style.overflow = '';
+
+      setTimeout(() => gate?.remove(), 300);
+    });
+  }
+</script>
