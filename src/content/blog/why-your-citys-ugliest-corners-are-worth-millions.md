@@ -34,13 +34,13 @@ The ugliest corners of your city — the ones wrapped in scaffold and surrounded
 
 Let's take a real example. A busy high street in a mid-sized UK city.
 
-On one side of the road: a permanent digital billboard, 48-sheet format, owned by a major outdoor media company. It runs programmatic advertising — six advertiser slots rotating in a loop, each paying **£1,000–£4,000 per fortnight** depending on the city. At a regional city centre rate, that screen is generating roughly **£15,000–£30,000 per month** in gross advertising revenue. It took years to get planning consent.
+On one side of the road: a building wrapped in scaffolding. It's been there for eight months. The scaffold face is large, prominent, and directly in the sightline of every pedestrian and driver on the street. It's generating **£0 per month** in advertising revenue. Not a penny.
 
-On the other side of the road: a scaffold wrapped around a building undergoing renovation. It's been there for eight months. It's roughly the same size as the billboard opposite. It faces the same traffic, the same pedestrians, the same audience. It generates **£0 per month**. It didn't need planning consent for the scaffold itself — just for the building work.
+On the other side of the road: a bus shelter. A fraction of the size. A fraction of the visual impact. But it has a digital screen — and it's earning money every single day.
 
-Same location. Same audience. Same visual impact. One makes tens of thousands. The other makes nothing.
+The scaffold is in a better location, has a bigger surface, commands more attention, and stays there for longer. Yet the bus shelter outearns it by infinity percent, because the bus shelter has a screen and the scaffold doesn't.
 
-Now ask yourself: why?
+The scaffold isn't competing with billboards or bus shelters — it's a completely different category. But the point stands: **the advertising value of that location exists whether you capture it or not**. Right now, construction sites are letting it evaporate.
 
 ## The Attention Economy
 
