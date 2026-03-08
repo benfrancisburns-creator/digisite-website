@@ -225,18 +225,46 @@ Canvas attaches to the 48.3mm outer tube border of the sub-frame using bungee co
 
 ## 4. DigiPERIM — ENCLOSURE DESIGN
 
-### Concept: Cupboard Unit
-The DigiPerim unit is a **cupboard-style enclosure** that:
-- Houses the LED screen cabinets and all associated hardware (video processor, power distribution, internet router, cabling)
-- Bolts onto a perimeter framework installed around the site hoarding/fencing
-- Framework is easily installed and removed — designed for quick deployment and recovery
-- Weatherproof enclosure — all hardware protected from elements
-- Front access panel for maintenance
+### Concept: Modular Cabinet System
+The DigiPerim unit is a **modular cabinet system** designed to be coupled together along perimeter fencing/hoardings. Each cabinet houses LED screen panels and all associated hardware, protected by heavy duty perspex covers.
+
+### Cabinet Types & Dimensions
+
+All cabinets share a standard height of **2.44m** and are designed to couple together into continuous runs.
+
+| Cabinet Type | Height | Width | Purpose |
+|---|---|---|---|
+| **External corner** | 2.44m | 1m per side (from back edge) | Wraps around external corners of perimeter |
+| **Internal corner** | 2.44m | 1m per side (from back edge) | Fits inside corners of perimeter |
+| **Closing cabinet** | 2.44m | 1m | End cap / termination unit |
+| **Coupler cabinet** | 2.44m | 1m | Joins straight runs together |
+
+### Cabinet Construction (Side View / Cross-Section)
+Each cabinet follows a consistent internal layout:
+
+| Component | Detail |
+|---|---|
+| **Mounting** | Class D scaffold clamps — attaches to perimeter pole system |
+| **Casing** | Robust enclosure, 2.4m (H) × 1.2m (W) |
+| **Cavity** | Internal cavity for services (power, data, cabling) |
+| **Screen fixing** | Brackets for modular LED screen mounting |
+| **Back plate** | Removable — allows rear access for installation and maintenance |
+| **LED screens** | Modular LED panels mounted inside on brackets |
+| **Protection** | Heavy duty perspex cover over screen face |
+| **Seal** | Weatherproof seal at top of cabinet |
+
+### Fabrication
+- Cabinets fabricated from **2–4mm sheet metal** — pressed, cut, or welded
+- Modifications to standard shell for: screen fitting, pole system attachment, hardware integration
+- All cabinets have coupling points so they can be joined into continuous runs
+- All cabinets accept protector screen (heavy duty perspex)
+- Pricing to be obtained from fabrication suppliers
 
 ### Design Status
-- Designs are near final
-- Need finalising and pricing for manufacture
-- Framework design also near final — needs pricing
+- Cabinet designs documented with hand sketches (see `docs/reference/DigiPerim-Product-Details.pdf`)
+- 4 cabinet types defined: external corner, internal corner, closing, coupler
+- Internal layout standardised across all types
+- Need formal engineering drawings and fabrication quotes
 
 ### Key Engineering Considerations
 - Frame footprint vs available pavement/site boundary space
@@ -244,6 +272,7 @@ The DigiPerim unit is a **cupboard-style enclosure** that:
 - Wind loading on both screen face and enclosure body
 - Cable routing and weatherproofing at all penetrations
 - Security — anti-tamper fixings, lockable access panels
+- Coupling mechanism between adjacent cabinets
 
 ---
 
@@ -328,8 +357,12 @@ The CMS backbone for DigiSite's screen network. Key capabilities:
 - [ ] Custom bracket design and fabrication quote (bracket connecting LED cabinet rear to 48.3mm tube)
 - [ ] Canvas wrap quote from Liverpool-based scaffold/signage wrap printer (per standard DigiScaff size)
 - [ ] Bill of materials for key clamp rigging per screen size (Small 6-cab and Large 36-cab)
-- [ ] DigiPerim cupboard unit design to be finalised and priced
-- [ ] DigiPerim framework design to be finalised and priced
+- [x] DigiPerim cabinet types defined — external corner, internal corner, closing, coupler (all 2.44m × 1m)
+- [x] DigiPerim internal layout standardised — Class D clamps, cavity for services, removable back plate, LED brackets, perspex cover
+- [x] DigiPerim fabrication method confirmed — 2-4mm sheet metal (pressed/cut/welded)
+- [ ] DigiPerim formal engineering drawings to be produced from hand sketches
+- [ ] DigiPerim fabrication quotes to be obtained
+- [ ] DigiPerim framework/pole system design to be finalised and priced
 - [ ] Internet connectivity provider shortlist to be confirmed with quotes
 - [ ] Lucy Zodion feeder pillar formal quote to be obtained per unit
 - [ ] Samsung MagicINFO licensing cost to be confirmed
