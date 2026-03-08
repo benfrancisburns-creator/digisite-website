@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /terms
+Disallow: /privacy
+
+Sitemap: https://www.digiscaff.co.uk/sitemap-index.xml

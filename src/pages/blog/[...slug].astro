@@ -29,14 +29,21 @@ function formatDate(date: Date) {
 }
 
 const articleUrl = `https://www.digiscaff.co.uk/blog/${getSlug(post.id)}`;
+const ogImageUrl = 'https://www.digiscaff.co.uk/og-default.svg';
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   headline: post.data.title,
   description: post.data.description,
   datePublished: post.data.date.toISOString(),
+  image: ogImageUrl,
   author: { '@type': 'Organization', name: 'DigiSite', url: 'https://www.digiscaff.co.uk' },
-  publisher: { '@type': 'Organization', name: 'DigiSite', url: 'https://www.digiscaff.co.uk' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'DigiSite',
+    url: 'https://www.digiscaff.co.uk',
+    logo: { '@type': 'ImageObject', url: 'https://www.digiscaff.co.uk/og-default.svg' },
+  },
   mainEntityOfPage: articleUrl,
 };
 ---

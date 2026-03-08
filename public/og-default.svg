@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0D1B2A"/>
+  <!-- Subtle grid lines -->
+  <line x1="0" y1="580" x2="1200" y2="580" stroke="#1a2d42" stroke-width="1"/>
+  <line x1="0" y1="530" x2="1200" y2="530" stroke="#1a2d42" stroke-width="0.5"/>
+  <!-- Scaffold lines left -->
+  <line x1="80" y1="100" x2="80" y2="580" stroke="#2A3F52" stroke-width="2"/>
+  <line x1="140" y1="140" x2="140" y2="580" stroke="#2A3F52" stroke-width="2"/>
+  <line x1="80" y1="200" x2="140" y2="200" stroke="#2A3F52" stroke-width="1.5"/>
+  <line x1="80" y1="300" x2="140" y2="300" stroke="#2A3F52" stroke-width="1.5"/>
+  <line x1="80" y1="400" x2="140" y2="400" stroke="#2A3F52" stroke-width="1.5"/>
+  <line x1="80" y1="500" x2="140" y2="500" stroke="#2A3F52" stroke-width="1.5"/>
+  <!-- Cross braces -->
+  <line x1="80" y1="200" x2="140" y2="300" stroke="#2A3F52" stroke-width="1" opacity="0.5"/>
+  <line x1="140" y1="200" x2="80" y2="300" stroke="#2A3F52" stroke-width="1" opacity="0.5"/>
+  <line x1="80" y1="400" x2="140" y2="500" stroke="#2A3F52" stroke-width="1" opacity="0.5"/>
+  <line x1="140" y1="400" x2="80" y2="500" stroke="#2A3F52" stroke-width="1" opacity="0.5"/>
+  <!-- Scaffold lines right -->
+  <line x1="1060" y1="120" x2="1060" y2="580" stroke="#2A3F52" stroke-width="2"/>
+  <line x1="1120" y1="80" x2="1120" y2="580" stroke="#2A3F52" stroke-width="2"/>
+  <line x1="1060" y1="220" x2="1120" y2="220" stroke="#2A3F52" stroke-width="1.5"/>
+  <line x1="1060" y1="340" x2="1120" y2="340" stroke="#2A3F52" stroke-width="1.5"/>
+  <line x1="1060" y1="460" x2="1120" y2="460" stroke="#2A3F52" stroke-width="1.5"/>
+  <line x1="1060" y1="220" x2="1120" y2="340" stroke="#2A3F52" stroke-width="1" opacity="0.5"/>
+  <line x1="1120" y1="220" x2="1060" y2="340" stroke="#2A3F52" stroke-width="1" opacity="0.5"/>
+  <!-- LED glow effect -->
+  <rect x="350" y="200" width="500" height="80" rx="4" fill="rgba(0,212,255,0.03)" stroke="rgba(0,212,255,0.15)" stroke-width="1"/>
+  <!-- Hexagon logo mark -->
+  <polygon points="600,160 630,177 630,211 600,228 570,211 570,177" fill="none" stroke="#00D4FF" stroke-width="2" opacity="0.3"/>
+  <!-- Brand text -->
+  <text x="600" y="270" font-family="'Space Grotesk', 'Segoe UI', sans-serif" font-weight="700" font-size="64" fill="#F7F9FC" text-anchor="middle" letter-spacing="-2">DigiSite</text>
+  <!-- Tagline -->
+  <text x="600" y="330" font-family="'Space Grotesk', 'Segoe UI', sans-serif" font-weight="400" font-size="22" fill="#8A9BB0" text-anchor="middle">Digital Advertising on Construction Scaffolding</text>
+  <!-- URL -->
+  <text x="600" y="540" font-family="'IBM Plex Mono', 'Courier New', monospace" font-weight="400" font-size="16" fill="#00D4FF" text-anchor="middle" letter-spacing="2">www.digiscaff.co.uk</text>
+  <!-- Cyan accent line -->
+  <rect x="480" y="360" width="240" height="2" rx="1" fill="#00D4FF" opacity="0.4"/>
+</svg>

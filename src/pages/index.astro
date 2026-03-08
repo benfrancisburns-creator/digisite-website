@@ -12,9 +12,31 @@ import Technology from '../components/Technology.astro';
 import Roadmap from '../components/Roadmap.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'DigiSite',
+  legalName: 'DigiSite Limited',
+  url: 'https://www.digiscaff.co.uk',
+  description: 'DigiSite transforms construction scaffolding into high-brightness LED advertising screens across UK cities.',
+  foundingDate: '2024',
+  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Liverpool',
+    addressRegion: 'Merseyside',
+    addressCountry: 'GB',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'info@digiscaff.co.uk',
+    contactType: 'sales',
+  },
+};
 ---
 
-<Base>
+<Base jsonLd={jsonLd}>
   <Nav />
   <Hero />
   <Opportunity />
