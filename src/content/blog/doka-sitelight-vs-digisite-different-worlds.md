@@ -1,7 +1,7 @@
 ---
 title: "Doka SiteLight vs DigiSite: Same Idea, Completely Different Approach"
 description: "Doka's SiteLight puts screens on formwork towers. DigiSite puts them where people actually look — on scaffold faces and street-level hoardings. Here's why that difference matters."
-date: 2026-01-10
+date: 2025-04-04
 category: "Market Analysis"
 readingTime: "6 min read"
 featured: false

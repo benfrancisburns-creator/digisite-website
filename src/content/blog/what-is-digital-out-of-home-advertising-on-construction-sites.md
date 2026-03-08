@@ -1,7 +1,7 @@
 ---
 title: "What Is Digital Out-of-Home Advertising on Construction Sites?"
 description: "Construction scaffolding and hoardings occupy some of the most visible locations in UK cities — yet they remain untapped as advertising real estate. Here's how DOOH is changing that."
-date: 2026-03-08
+date: 2026-03-04
 category: "Industry"
 readingTime: "6 min read"
 featured: true

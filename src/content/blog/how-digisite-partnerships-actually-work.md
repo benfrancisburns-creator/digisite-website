@@ -1,7 +1,7 @@
 ---
 title: "No Risk, No Cost, No Catch: How DigiSite Partnerships Actually Work"
 description: "Sounds too good to be true? Here's the full, transparent breakdown of how DigiSite partnerships work — what you give, what you get, and why there's genuinely no catch."
-date: 2026-01-15
+date: 2025-05-04
 category: "Partnerships"
 readingTime: "5 min read"
 featured: false

@@ -1,7 +1,7 @@
 ---
 title: "Four Partners, One Screen: Why DigiSite Works for Everyone in the Chain"
 description: "Most business models have a winner and a loser. DigiSite's partnership model is built so that every party — from the scaffold company to the local community — walks away better off."
-date: 2026-01-20
+date: 2025-06-04
 category: "Partnerships"
 readingTime: "7 min read"
 featured: false

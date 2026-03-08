@@ -1,7 +1,7 @@
 ---
 title: "The UK Construction Boom and What It Means for Advertising"
 description: "Record levels of urban regeneration across Liverpool, Manchester, Birmingham, and London are creating thousands of high-visibility construction sites — and a new frontier for media."
-date: 2026-02-20
+date: 2025-11-04
 category: "Trends"
 readingTime: "4 min read"
 featured: false

@@ -1,7 +1,7 @@
 ---
 title: "The Death of the Static Billboard — And Why Nobody's Mourning It"
 description: "Static billboards had a good run. But in a world of real-time data, programmatic buying, and instant content updates, they're already dead. Here's what killed them."
-date: 2026-02-10
+date: 2025-09-04
 category: "Industry"
 readingTime: "5 min read"
 featured: false

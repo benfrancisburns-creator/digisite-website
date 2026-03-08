@@ -1,7 +1,7 @@
 ---
 title: "Scaffolding Pays Rent: How Construction Sites Could Fund the Communities Around Them"
 description: "What if the construction site disrupting your street was actually paying for local projects? A new model for community-funded infrastructure."
-date: 2026-02-15
+date: 2025-10-04
 category: "Community"
 readingTime: "6 min read"
 featured: false

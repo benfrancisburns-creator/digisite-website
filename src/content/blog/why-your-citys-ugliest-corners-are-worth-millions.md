@@ -1,7 +1,7 @@
 ---
 title: "Why Your City's Ugliest Corners Are Worth Millions"
 description: "The most valuable advertising locations in a city aren't the pretty ones. They're the scaffolded buildings, the hoardings, and the sites everyone complains about. Here's why."
-date: 2026-01-28
+date: 2025-07-04
 category: "Opinion"
 readingTime: "5 min read"
 featured: false

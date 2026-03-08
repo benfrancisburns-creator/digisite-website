@@ -1,7 +1,7 @@
 ---
 title: "10 Things You Walk Past Every Day That Could Be Making Money"
 description: "From scaffolding to bus stops, from car parks to canal bridges — urban infrastructure is full of missed opportunities. Here are 10 that are hiding in plain sight."
-date: 2026-02-05
+date: 2025-08-04
 category: "Ideas"
 readingTime: "6 min read"
 featured: false

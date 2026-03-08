@@ -1,7 +1,7 @@
 ---
 title: "Why Scaffold Advertising Is the Next Big Opportunity in UK Media"
 description: "With digital OOH growing at over 10% year-on-year and urban construction at record levels, scaffold-mounted digital screens represent a massive untapped market."
-date: 2026-03-01
+date: 2026-01-04
 category: "Market Analysis"
 readingTime: "5 min read"
 featured: false

@@ -1,7 +1,7 @@
 ---
 title: "What If Every Construction Site in Your City Was a Giant Screen?"
 description: "There are over 160,000 active construction sites across the UK right now. Imagine if every single one of them could talk to you. Here's what that future looks like."
-date: 2026-03-06
+date: 2026-02-04
 category: "Opinion"
 readingTime: "7 min read"
 featured: false

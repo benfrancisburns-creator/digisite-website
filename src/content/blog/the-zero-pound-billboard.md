@@ -1,7 +1,7 @@
 ---
 title: "The £0 Billboard: Why Scaffold Companies Are Sitting on a Goldmine"
 description: "Your scaffolding is in the most valuable advertising locations in the country. You're just not charging for it yet. Here's the maths."
-date: 2026-02-28
+date: 2025-12-04
 category: "Business"
 readingTime: "5 min read"
 featured: false
