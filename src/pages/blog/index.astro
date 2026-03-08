@@ -11,6 +11,8 @@ const posts = (await getCollection('blog')).sort(
 const featured = posts.find(p => p.data.featured) || posts[0];
 const rest = posts.filter(p => p.id !== featured?.id);
 
+const categories = [...new Set(posts.map(p => p.data.category))].sort();
+
 function formatDate(date: Date) {
   return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 }
@@ -30,7 +32,7 @@ function getSlug(id: string) {
     <div class="max-w-content mx-auto px-6 md:px-12">
 
       <!-- Header -->
-      <div class="reveal mb-16">
+      <div class="reveal mb-10">
         <p class="font-mono font-semibold text-cyan text-[18px] uppercase tracking-[0.2em] mb-4">INSIGHTS</p>
         <h1 class="font-grotesk font-bold text-off-white mb-4" style="font-size: clamp(36px, 5vw, 52px); letter-spacing: -0.02em; line-height: 1.0;">
           Blog &amp; Articles
@@ -40,9 +42,32 @@ function getSlug(id: string) {
         </p>
       </div>
 
+      <!-- Category filters -->
+      <div class="reveal mb-12 flex flex-wrap gap-2" id="blog-filters">
+        <button
+          class="blog-filter-btn active font-mono text-[12px] uppercase tracking-[0.12em] px-4 py-2 rounded-sm border transition-all duration-200"
+          data-category="all"
+        >
+          All
+        </button>
+        {categories.map(cat => (
+          <button
+            class="blog-filter-btn font-mono text-[12px] uppercase tracking-[0.12em] px-4 py-2 rounded-sm border transition-all duration-200"
+            data-category={cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
       {featured && (
         <!-- Featured post -->
-        <a href={`/blog/${getSlug(featured.id)}`} class="reveal group block mb-16 border border-cyan/[0.12] rounded-lg overflow-hidden bg-section hover:border-cyan/30 transition-all duration-300">
+        <a
+          href={`/blog/${getSlug(featured.id)}`}
+          class="blog-featured reveal group block mb-12 border border-cyan/[0.12] rounded-lg overflow-hidden bg-section hover:border-cyan/30 transition-all duration-300"
+          data-category={featured.data.category}
+          id="featured-post"
+        >
           <div class="p-8 md:p-12">
             <div class="flex flex-wrap items-center gap-4 mb-5">
               <span class="font-mono font-semibold text-[11px] uppercase tracking-[0.15em] text-navy bg-cyan px-3 py-1 rounded-sm">Featured</span>
@@ -65,9 +90,13 @@ function getSlug(id: string) {
 
       <!-- Post grid -->
       {rest.length > 0 && (
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger" id="post-grid">
           {rest.map(post => (
-            <a href={`/blog/${getSlug(post.id)}`} class="reveal group block border border-cyan/[0.08] rounded-lg bg-section hover:border-cyan/25 transition-all duration-300 hover:-translate-y-1">
+            <a
+              href={`/blog/${getSlug(post.id)}`}
+              class="blog-card reveal group block border border-cyan/[0.08] rounded-lg bg-section hover:border-cyan/25 transition-all duration-300 hover:-translate-y-1"
+              data-category={post.data.category}
+            >
               <div class="p-6 md:p-8 flex flex-col h-full">
                 <div class="flex items-center gap-3 mb-4">
                   <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-cyan">{post.data.category}</span>
@@ -90,6 +119,11 @@ function getSlug(id: string) {
         </div>
       )}
 
+      <!-- No results message -->
+      <div id="no-results" class="hidden text-center py-16">
+        <p class="font-grotesk text-mid-grey text-[16px]">No articles in this category yet.</p>
+      </div>
+
       <!-- CTA -->
       <div class="reveal mt-20 text-center border border-cyan/[0.12] rounded-lg p-10 md:p-14" style="background: rgba(0, 212, 255, 0.02);">
         <p class="font-mono font-semibold text-[13px] text-cyan uppercase tracking-[0.18em] mb-3">STAY INFORMED</p>
@@ -108,4 +142,79 @@ function getSlug(id: string) {
   </main>
 
   <Footer />
+
+  <style>
+    .blog-filter-btn {
+      color: var(--color-grey);
+      border-color: rgba(0, 212, 255, 0.1);
+      background: transparent;
+      cursor: pointer;
+    }
+    .blog-filter-btn:hover {
+      color: var(--color-off-white);
+      border-color: rgba(0, 212, 255, 0.3);
+    }
+    .blog-filter-btn.active {
+      color: var(--color-navy);
+      background: var(--color-cyan);
+      border-color: var(--color-cyan);
+    }
+    .blog-card-hidden {
+      display: none !important;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.blog-filter-btn');
+      const featured = document.getElementById('featured-post');
+      const cards = document.querySelectorAll('.blog-card');
+      const noResults = document.getElementById('no-results');
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const category = btn.getAttribute('data-category');
+
+          // Update active button
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          if (category === 'all') {
+            // Show everything as normal
+            if (featured) featured.classList.remove('blog-card-hidden');
+            cards.forEach(card => card.classList.remove('blog-card-hidden'));
+            if (noResults) noResults.classList.add('hidden');
+            return;
+          }
+
+          // Filter by category
+          const featuredCat = featured?.getAttribute('data-category');
+          let visibleCount = 0;
+
+          if (featured) {
+            if (featuredCat === category) {
+              featured.classList.remove('blog-card-hidden');
+              visibleCount++;
+            } else {
+              featured.classList.add('blog-card-hidden');
+            }
+          }
+
+          cards.forEach(card => {
+            if (card.getAttribute('data-category') === category) {
+              card.classList.remove('blog-card-hidden');
+              visibleCount++;
+            } else {
+              card.classList.add('blog-card-hidden');
+            }
+          });
+
+          // Show/hide no results message
+          if (noResults) {
+            noResults.classList.toggle('hidden', visibleCount > 0);
+          }
+        });
+      });
+    });
+  </script>
 </Base>
