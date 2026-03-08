@@ -95,6 +95,7 @@ DigiSite publishes regular blog articles at digiscaff.co.uk/blog covering indust
 - **"The Death of the Static Billboard"** — Industry disruption narrative. Static is declining, digital is growing, and construction sites are the next frontier.
 - **"10 Things You Walk Past Every Day That Could Be Making Money"** — Accessible listicle covering scaffolding, hoardings, car parks, railway bridges and more.
 - **"Why Your City's Ugliest Corners Are Worth Millions"** — Advertisers are already paying premium rates for urban screen space everywhere. Construction sites are in the same locations but capturing none of that value.
+- **"Every Surface Is a Screen Now — And That's Not a Bad Thing"** — Opinion piece on how ad-funded infrastructure (bus shelters, phone boxes, station screens) has improved cities. Makes the case that the attention contract between public and advertisers funds better urban spaces.
 
 If someone asks about a topic covered by a blog article, you can reference it and direct them to digiscaff.co.uk/blog to read more.
 
