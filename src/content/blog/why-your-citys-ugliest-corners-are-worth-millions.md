@@ -30,17 +30,17 @@ Construction sites cluster in **the most valuable advertising locations** becaus
 
 The ugliest corners of your city — the ones wrapped in scaffold and surrounded by hoardings — are sitting on some of the most valuable advertising real estate in the country. They just don't know it.
 
-## A Tale of Two Streets
+## Look Around You — Advertisers Are Already Paying
 
-Let's take a real example. A busy high street in a mid-sized UK city.
+Walk down any high street in a UK city and count the screens. Digital bus shelters. Roadside 6-sheets. Large-format billboards on building gables. Screens inside shopping centres, at train stations, on the sides of phone boxes. Every single one of them is generating revenue — because advertisers are willing to pay good money to be seen in high-traffic urban locations.
 
-On one side of the road: a building wrapped in scaffolding. It's been there for eight months. The scaffold face is large, prominent, and directly in the sightline of every pedestrian and driver on the street. It's generating **£0 per month** in advertising revenue. Not a penny.
+And they're paying well. The UK out-of-home advertising market is worth over **£1.4 billion**, growing at more than 10% a year, with digital formats commanding the majority of spend. Demand for premium urban screen space has never been higher. Media owners can't build screens fast enough.
 
-On the other side of the road: a bus shelter. A fraction of the size. A fraction of the visual impact. But it has a digital screen — and it's earning money every single day.
+That's the context. Now look at the scaffold wrapped around the building on that same high street. It's in the same location. Facing the same audience. Often bigger and more prominent than the screens around it. It's been there for months — and it'll be there for months more.
 
-The scaffold is in a better location, has a bigger surface, commands more attention, and stays there for longer. Yet the bus shelter outearns it by infinity percent, because the bus shelter has a screen and the scaffold doesn't.
+The advertisers walking past it every day are spending thousands on the bus shelter across the road. They'd spend on the scaffold too — **if it had a screen**.
 
-The scaffold isn't competing with billboards or bus shelters — it's a completely different category. But the point stands: **the advertising value of that location exists whether you capture it or not**. Right now, construction sites are letting it evaporate.
+This isn't a criticism of the OOH industry. It's a compliment. They've proven that urban screen space is valuable, that advertisers will pay for it, and that the demand is growing. All DigiSite is doing is opening up a new category of that same inventory — one that's been hiding in plain sight on every construction site in the country.
 
 ## The Attention Economy
 
