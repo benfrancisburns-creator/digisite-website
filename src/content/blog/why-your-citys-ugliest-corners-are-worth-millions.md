@@ -34,11 +34,11 @@ The ugliest corners of your city — the ones wrapped in scaffold and surrounded
 
 Let's take a real example. A busy high street in a mid-sized UK city.
 
-On one side of the road: a permanent digital billboard, 48-sheet format, owned by a major outdoor media company. It runs programmatic advertising, cycles through six campaigns per hour, and generates approximately **£6,000 per month** in revenue. It took years to get planning consent.
+On one side of the road: a permanent digital billboard, 48-sheet format, owned by a major outdoor media company. It runs programmatic advertising — six advertiser slots rotating in a loop, each paying **£1,000–£4,000 per fortnight** depending on the city. At a regional city centre rate, that screen is generating roughly **£15,000–£30,000 per month** in gross advertising revenue. It took years to get planning consent.
 
 On the other side of the road: a scaffold wrapped around a building undergoing renovation. It's been there for eight months. It's roughly the same size as the billboard opposite. It faces the same traffic, the same pedestrians, the same audience. It generates **£0 per month**. It didn't need planning consent for the scaffold itself — just for the building work.
 
-Same location. Same audience. Same visual impact. One makes money. The other doesn't.
+Same location. Same audience. Same visual impact. One makes tens of thousands. The other makes nothing.
 
 Now ask yourself: why?
 
@@ -56,19 +56,15 @@ Construction sites are **attention magnets**. They're just not capitalising on i
 
 Let's put some numbers on it.
 
-A typical scaffold face in a city-centre location:
+A DigiScaff screen on a city-centre scaffold face runs six advertiser slots in a rotating loop. Each slot sells at approximately **£2,500 per fortnight** — the industry-standard booking cycle for UK out-of-home advertising. That's **£15,000 per fortnight** at full utilisation, or roughly **£32,500 per month** in gross advertising revenue.
 
-- **Size:** 10m × 6m (60 sq metres)
-- **Duration:** 12 months
-- **Daily footfall:** 35,000 pedestrians
-- **Daily traffic:** 15,000 vehicles
-- **Monthly impressions:** ~1.5 million
+Over a 12-month scaffold programme, that single screen generates approximately **£390,000** in gross revenue.
 
-At a standard digital DOOH CPM of £5-8, that's **£7,500-£12,000 per month** in potential revenue. Over 12 months: **£90,000-£144,000**.
+The scaffold company's hire income from that same job? Typically **£2,000-£4,000 per month**.
 
-The scaffold company's revenue from that job? Typically **£2,000-£4,000 per month** in hire charges.
+The advertising value of the scaffold face is **eight to sixteen times the hire value of the scaffold itself**. And right now, 100% of that advertising value is being left on the table.
 
-The advertising value of the scaffold face is **two to three times the hire value of the scaffold itself**. And right now, 100% of that advertising value is being left on the table.
+Add a run of DigiPerim screens along the perimeter hoarding — five panels across a 15-metre frontage, each with six slots at £1,000 per slot per fortnight — and the combined site generates over **£1.17 million gross per year**.
 
 ## Why Nobody's Done This Before
 

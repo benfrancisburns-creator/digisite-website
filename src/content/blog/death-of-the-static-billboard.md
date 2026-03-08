@@ -15,7 +15,7 @@ This is the static billboard industry in 2026. And it's dying.
 
 ## The Numbers Don't Lie
 
-In 2015, static formats accounted for **78%** of UK out-of-home advertising revenue. By 2025, that had flipped — digital now commands over **66%** of OOH spend, and the gap widens every quarter.
+In 2015, static formats accounted for **78%** of UK out-of-home advertising revenue. By 2025, that had flipped — digital now commands around **64%** of OOH spend, and the gap widens every quarter.
 
 The trajectory is clear. Within five years, static will be a niche format — used only where digital isn't feasible or where the cost can't be justified. The premium end of the market has already moved entirely to digital.
 

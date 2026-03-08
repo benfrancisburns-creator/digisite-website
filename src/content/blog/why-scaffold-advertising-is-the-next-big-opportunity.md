@@ -7,7 +7,7 @@ readingTime: "5 min read"
 featured: false
 ---
 
-The UK's out-of-home advertising market hit **£1.46 billion** in 2025, with digital formats now accounting for over 66% of total OOH revenue. Meanwhile, UK construction output continues to grow, with major regeneration programmes underway in almost every major city.
+The UK's out-of-home advertising market hit **£1.46 billion** in 2025, with digital formats now accounting for around 64% of total OOH revenue. Meanwhile, UK construction output continues to grow, with major regeneration programmes underway in almost every major city.
 
 These two trends are on a collision course — and the result is one of the most compelling media opportunities in years.
 
@@ -17,7 +17,7 @@ Consider the scale of the opportunity:
 
 - **160,000+** active construction sites across the UK at any given time
 - **£1.46bn** UK OOH market, growing at 10%+ annually
-- **66%** of OOH spend now goes to digital formats
+- **64%** of OOH spend now goes to digital formats
 - **6-18 months** average duration of urban scaffolding projects
 - **Zero** dedicated platforms connecting construction sites to DOOH networks
 
