@@ -1,7 +1,7 @@
 ---
 title: "Every Surface Is a Screen Now — And That's Not a Bad Thing"
 description: "Cities are filling up with digital screens. Bus shelters, phone boxes, taxi roofs, gym mirrors. The instinctive reaction is to recoil — but most of it has made cities better."
-date: 2026-04-04
+date: 2026-03-06
 category: "Opinion"
 readingTime: "5 min read"
 featured: false
