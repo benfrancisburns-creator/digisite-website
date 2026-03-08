@@ -74,11 +74,11 @@ const { otherLabel, otherHref } = Astro.props;
   const btn = document.getElementById('legal-accept-btn');
 
   // If already accepted, hide the bar
-  if (localStorage.getItem(STORAGE_KEY) === 'true') {
+  if (sessionStorage.getItem(STORAGE_KEY) === 'true') {
     bar?.remove();
   } else {
     btn?.addEventListener('click', () => {
-      localStorage.setItem(STORAGE_KEY, 'true');
+      sessionStorage.setItem(STORAGE_KEY, 'true');
       window.location.href = '/';
     });
   }

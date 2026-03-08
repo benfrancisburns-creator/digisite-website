@@ -1,0 +1,136 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id.replace(/\.md$/, '') },
+    props: { post },
+  }));
+}
+
+function getSlug(id: string) {
+  return id.replace(/\.md$/, '');
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const allPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+const related = allPosts.filter(p => p.id !== post.id).slice(0, 2);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+const articleUrl = `https://www.digiscaff.co.uk/blog/${getSlug(post.id)}`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  author: { '@type': 'Organization', name: 'DigiSite', url: 'https://www.digiscaff.co.uk' },
+  publisher: { '@type': 'Organization', name: 'DigiSite', url: 'https://www.digiscaff.co.uk' },
+  mainEntityOfPage: articleUrl,
+};
+---
+
+<Base
+  title={`${post.data.title} — DigiSite Blog`}
+  description={post.data.description}
+  ogType="article"
+  articleDate={post.data.date.toISOString()}
+  jsonLd={jsonLd}
+>
+  <Nav />
+
+  <main class="pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="max-w-content mx-auto px-6 md:px-12">
+
+      <!-- Back link -->
+      <a href="/blog" class="reveal inline-flex items-center gap-2 font-mono text-[13px] text-cyan uppercase tracking-[0.12em] mb-10 hover:opacity-80 transition-opacity duration-200">
+        &larr; All Articles
+      </a>
+
+      <!-- Article header -->
+      <header class="reveal mb-12 max-w-[780px]">
+        <div class="flex flex-wrap items-center gap-4 mb-5">
+          <span class="font-mono text-[12px] uppercase tracking-[0.12em] text-cyan">{post.data.category}</span>
+          <span class="font-mono text-[12px] text-mid-grey/60">&middot;</span>
+          <time class="font-mono text-[12px] text-mid-grey">{formatDate(post.data.date)}</time>
+          <span class="font-mono text-[12px] text-mid-grey/60">&middot;</span>
+          <span class="font-mono text-[12px] text-mid-grey">{post.data.readingTime}</span>
+        </div>
+        <h1 class="font-grotesk font-bold text-off-white mb-4" style="font-size: clamp(32px, 5vw, 48px); letter-spacing: -0.02em; line-height: 1.1;">
+          {post.data.title}
+        </h1>
+        <p class="font-grotesk text-mid-grey text-[17px]" style="line-height: 1.7;">
+          {post.data.description}
+        </p>
+      </header>
+
+      <!-- Share -->
+      <div class="reveal flex items-center gap-4 mb-12 max-w-[780px]">
+        <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-mid-grey">Share</span>
+        <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(articleUrl)}`} target="_blank" rel="noopener noreferrer" class="text-mid-grey hover:text-cyan transition-colors duration-200" aria-label="Share on LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(articleUrl)}&text=${encodeURIComponent(post.data.title)}`} target="_blank" rel="noopener noreferrer" class="text-mid-grey hover:text-cyan transition-colors duration-200" aria-label="Share on X">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+
+      <div class="rule-cyan mb-12"></div>
+
+      <!-- Article body -->
+      <article class="reveal prose-digisite max-w-[780px]">
+        <Content />
+      </article>
+
+      <!-- Share / CTA -->
+      <div class="reveal mt-16 max-w-[780px] border border-cyan/[0.12] rounded-lg p-8 md:p-10" style="background: rgba(0, 212, 255, 0.02);">
+        <p class="font-mono font-semibold text-[13px] text-cyan uppercase tracking-[0.15em] mb-3">INTERESTED IN DIGISITE?</p>
+        <p class="font-grotesk text-mid-grey text-[15px] mb-6" style="line-height: 1.65;">
+          DigiSite is building the future of digital out-of-home advertising on construction infrastructure. Register your interest to be first in line.
+        </p>
+        <a href="/#contact" class="inline-block px-8 py-3.5 bg-cyan text-navy font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:shadow-[0_0_24px_rgba(0,212,255,0.35)] transition-all duration-200">
+          Register Interest &rarr;
+        </a>
+      </div>
+
+      <!-- Related articles -->
+      {related.length > 0 && (
+        <div class="mt-20">
+          <p class="reveal font-mono font-semibold text-[13px] text-cyan uppercase tracking-[0.15em] mb-8">MORE ARTICLES</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-stagger">
+            {related.map(r => (
+              <a href={`/blog/${getSlug(r.id)}`} class="reveal group block border border-cyan/[0.08] rounded-lg bg-section hover:border-cyan/25 transition-all duration-300 hover:-translate-y-1">
+                <div class="p-6 md:p-8">
+                  <div class="flex items-center gap-3 mb-3">
+                    <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-cyan">{r.data.category}</span>
+                    <span class="font-mono text-[11px] text-mid-grey">{r.data.readingTime}</span>
+                  </div>
+                  <h3 class="font-grotesk font-bold text-off-white text-[18px] leading-tight mb-2 group-hover:text-cyan transition-colors duration-200">
+                    {r.data.title}
+                  </h3>
+                  <p class="font-grotesk text-mid-grey text-[14px]" style="line-height: 1.6;">
+                    {r.data.description}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+    </div>
+  </main>
+
+  <Footer />
+</Base>

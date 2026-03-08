@@ -93,13 +93,13 @@ import LogoSVG from './LogoSVG.astro';
   const path = window.location.pathname.replace(/\/+$/, '');
   const isLegalPage = path === '/terms' || path === '/privacy';
 
-  if (isLegalPage || localStorage.getItem(STORAGE_KEY) === 'true') {
+  if (isLegalPage || sessionStorage.getItem(STORAGE_KEY) === 'true') {
     gate?.remove();
   } else {
     document.body.style.overflow = 'hidden';
 
     btn?.addEventListener('click', () => {
-      localStorage.setItem(STORAGE_KEY, 'true');
+      sessionStorage.setItem(STORAGE_KEY, 'true');
       gate?.classList.add('hidden');
       document.body.style.overflow = '';
 
