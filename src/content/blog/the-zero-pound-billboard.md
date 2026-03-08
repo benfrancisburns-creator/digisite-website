@@ -13,9 +13,9 @@ You're a scaffold company. You've got a job on a city-centre high street — a r
 
 That scaffold face is approximately 12 metres wide and 8 metres tall. It's at eye level for pedestrians and drivers. It's on a street with 40,000+ daily footfall. It'll be there for over a year.
 
-In the advertising industry, that's called a **96-sheet equivalent digital billboard in a premium urban location**. A comparable screen in that position would sell for **£3,000-£8,000 per month** in advertising revenue.
+In the advertising industry, that's called a **96-sheet equivalent digital billboard in a premium urban location**. A DigiScaff screen in that position — running six advertiser slots at £2,500 per slot per fortnight — generates approximately **£32,500 per month** in gross advertising revenue at full utilisation.
 
-Over 14 months, that's somewhere between **£42,000 and £112,000** in potential revenue.
+Over 14 months, that's over **£450,000** in potential revenue.
 
 Your scaffold is currently generating **£0** of that.
 
@@ -63,14 +63,14 @@ The key point: **this is a solvable problem, not a blocker**. Companies already 
 
 For a scaffold company running 20 active urban sites at any given time:
 
-- Average screen revenue per site: **£4,000/month** (conservative)
-- Partner revenue share at 30%: **£1,200/month per site**
-- Across 20 sites: **£24,000/month**
-- Annual passive income: **£288,000**
+- Gross screen revenue per DigiScaff site: **£32,500/month** at full utilisation
+- Partner revenue share at 10–20%: **£3,250–£6,500/month per site**
+- Across 20 sites: **£65,000–£130,000/month**
+- Annual passive income: **£780,000–£1,560,000**
 
-That's nearly **£300,000 per year** in revenue from structures you were building anyway. No additional labour. No additional materials. No additional risk.
+That's potentially over **£1 million per year** in revenue from structures you were building anyway. No additional labour. No additional materials. No additional risk. And that's before DigiPerim screens on the perimeter hoardings — which can generate even more.
 
-For larger operators with 50+ urban sites, the numbers cross into seven figures.
+For larger operators with 50+ urban sites, the numbers are transformational.
 
 ## Who Moves First Wins
 

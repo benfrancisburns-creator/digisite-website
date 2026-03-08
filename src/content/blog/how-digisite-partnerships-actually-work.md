@@ -85,10 +85,14 @@ Because you're not doing nothing. You're providing the most valuable thing in ad
 
 Let's say you're a scaffold company with a job in Liverpool city centre. 12-month programme. Front elevation facing a busy road.
 
+A single DigiScaff screen runs six advertiser slots at £2,500 per slot per fortnight — that's **£15,000 per fortnight**, or roughly **£32,500 per month** in gross advertising revenue at full utilisation.
+
 - DigiSite installs a screen on the scaffold face — at our cost
-- The screen generates approximately **£5,000/month** in advertising revenue
-- Your revenue share is **30%** — that's **£1,500/month**
-- Over 12 months, you earn **£18,000** from that one site
+- The screen generates approximately **£32,500/month** in gross advertising revenue
+- Your revenue share is **10–20%** — that's **£3,250–£6,500/month**
+- Over 12 months, you earn **£39,000–£78,000** from that one site
+
+And that's just the scaffold face. Add a 15-metre DigiPerim run along the perimeter hoarding and the combined site generates over **£1.17 million gross per year**.
 
 You didn't buy the screen. You didn't sell any advertising. You didn't manage any content. You just let us attach something to a structure you were building anyway.
 
