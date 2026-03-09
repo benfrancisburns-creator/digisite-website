@@ -1,24 +1,34 @@
 ---
 // Solution.astro — DS-05
+interface Props {
+  product?: 'digiscaff' | 'digiperim';
+}
+const { product } = Astro.props;
+const showDigiScaff = !product || product === 'digiscaff';
+const showDigiPerim = !product || product === 'digiperim';
+const showHeader = !product;
 ---
 
 <section id="solution" class="relative bg-navy py-20 md:py-[120px]">
   <div class="max-w-content mx-auto px-6 md:px-12">
 
-    <!-- Section header -->
-    <div class="reveal mb-20">
-      <p class="font-mono font-semibold text-[18px] text-cyan uppercase tracking-[0.2em] mb-4">THE SOLUTION</p>
-      <h2 class="font-grotesk font-bold text-off-white mb-5" style="font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.02em; max-width: 680px;">
-        Two products. Every construction site.
-      </h2>
-      <p class="font-grotesk text-mid-grey text-lg" style="max-width: 620px; line-height: 1.65;">
-        DigiScaff mounts on scaffold structures. DigiPerim integrates into perimeter hoardings. Between them, they cover every deployment opportunity on every construction site in DigiSite's network.
-      </p>
-    </div>
+    {showHeader && (
+      <!-- Section header -->
+      <div class="reveal mb-20">
+        <p class="font-mono font-semibold text-[18px] text-cyan uppercase tracking-[0.2em] mb-4">THE SOLUTION</p>
+        <h2 class="font-grotesk font-bold text-off-white mb-5" style="font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.02em; max-width: 680px;">
+          Two products. Every construction site.
+        </h2>
+        <p class="font-grotesk text-mid-grey text-lg" style="max-width: 620px; line-height: 1.65;">
+          DigiScaff mounts on scaffold structures. DigiPerim integrates into perimeter hoardings. Between them, they cover every deployment opportunity on every construction site in DigiSite's network.
+        </p>
+      </div>
+    )}
 
     <!-- Product cards -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class:list={[product ? '' : 'grid grid-cols-1 lg:grid-cols-2 gap-6']}>
 
+      {showDigiScaff && (
       <!-- DigiScaff -->
       <div class="reveal border border-cyan/[0.15] rounded-md bg-section overflow-hidden">
         <!-- Product image -->
@@ -90,6 +100,9 @@
         </div>
       </div>
 
+      )}
+
+      {showDigiPerim && (
       <!-- DigiPerim -->
       <div class="reveal border border-cyan/[0.15] rounded-md bg-section overflow-hidden">
         <!-- Product image -->
@@ -160,6 +173,7 @@
           </p>
         </div>
       </div>
+      )}
     </div>
 
     <!-- Shared infrastructure strip -->
