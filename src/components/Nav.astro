@@ -1,15 +1,14 @@
 ---
 import LogoSVG from './LogoSVG.astro';
 
-const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
-const prefix = isHome ? '' : '/';
-
 const links = [
-  { label: 'Products', href: `${prefix}#solution` },
-  { label: 'Partners', href: `${prefix}#partnerships` },
-  { label: 'Market', href: `${prefix}#market` },
+  { label: 'DigiScaff', href: '/digiscaff' },
+  { label: 'DigiPerim', href: '/digiperim' },
+  { label: 'Partners', href: '/partnerships' },
+  { label: 'How It Works', href: '/how-it-works' },
+  { label: 'Investment', href: '/investment' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: `${prefix}#contact` },
+  { label: 'Contact', href: '/contact' },
 ];
 ---
 
@@ -31,7 +30,7 @@ const links = [
         </a>
       ))}
       <a
-        href={`${prefix}#contact`}
+        href="/contact"
         class="nav-link ml-8 px-6 py-2.5 border border-cyan text-cyan text-[13px] font-medium uppercase tracking-[0.1em] rounded-sm hover:bg-cyan/10 transition-all duration-200"
       >
         Partner With Us
@@ -63,7 +62,7 @@ const links = [
         {link.label}
       </a>
     ))}
-    <a href={`${prefix}#contact`} class="mobile-nav-link mt-4 px-10 py-4 border border-cyan text-cyan font-grotesk font-medium text-[13px] uppercase tracking-[0.1em]">
+    <a href="/contact" class="mobile-nav-link mt-4 px-10 py-4 border border-cyan text-cyan font-grotesk font-medium text-[13px] uppercase tracking-[0.1em]">
       Partner With Us
     </a>
   </nav>
@@ -112,18 +111,16 @@ const links = [
     link.addEventListener('click', closeMenu);
   });
 
-  // Only smooth-scroll pure #hash links on the homepage; /#hash links navigate normally
-  if (window.location.pathname === '/' || window.location.pathname === '') {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const href = (this as HTMLAnchorElement).getAttribute('href');
-        if (href) {
-          const target = document.querySelector(href);
-          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        closeMenu();
-      });
+  // Smooth-scroll any #hash links on the current page
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const href = (this as HTMLAnchorElement).getAttribute('href');
+      if (href) {
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      closeMenu();
     });
-  }
+  });
 </script>

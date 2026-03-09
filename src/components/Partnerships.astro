@@ -123,7 +123,7 @@
         </div>
       </div>
 
-      <button onclick="scrollToContact('construction')" class="inline-block px-9 py-4 bg-cyan text-navy font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:shadow-[0_0_24px_rgba(0,212,255,0.35)] transition-all duration-200">
+      <button onclick="window.location.href='/contact?scheme=construction'" class="inline-block px-9 py-4 bg-cyan text-navy font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:shadow-[0_0_24px_rgba(0,212,255,0.35)] transition-all duration-200">
         Join the Construction & Development Scheme &rarr;
       </button>
     </div>
@@ -203,7 +203,7 @@
         </div>
       </div>
 
-      <button onclick="scrollToContact('landlords')" class="inline-block px-9 py-4 border border-amber text-amber font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:bg-amber/10 transition-all duration-200">
+      <button onclick="window.location.href='/contact?scheme=landlords'" class="inline-block px-9 py-4 border border-amber text-amber font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:bg-amber/10 transition-all duration-200">
         Discuss a Landlords & Landowners Scheme &rarr;
       </button>
     </div>
@@ -288,7 +288,7 @@
         </div>
       </div>
 
-      <button onclick="scrollToContact('commercial')" class="inline-block px-9 py-4 bg-cyan text-navy font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:shadow-[0_0_24px_rgba(0,212,255,0.35)] transition-all duration-200">
+      <button onclick="window.location.href='/contact?scheme=commercial'" class="inline-block px-9 py-4 bg-cyan text-navy font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:shadow-[0_0_24px_rgba(0,212,255,0.35)] transition-all duration-200">
         Explore the Commercial & Public Scheme &rarr;
       </button>
     </div>
@@ -363,7 +363,7 @@
         </div>
       </div>
 
-      <button onclick="scrollToContact('events')" class="inline-block px-9 py-4 border border-amber text-amber font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:bg-amber/10 transition-all duration-200">
+      <button onclick="window.location.href='/contact?scheme=events'" class="inline-block px-9 py-4 border border-amber text-amber font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:bg-amber/10 transition-all duration-200">
         Register an Events Enquiry &rarr;
       </button>
     </div>
@@ -460,13 +460,4 @@
     });
   });
 
-  // Pre-selection function for contact form
-  (window as any).scrollToContact = function(scheme: string) {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => {
-      const targetBtn = document.querySelector(`[data-scheme="${scheme}"]`) as HTMLElement;
-      if (targetBtn) targetBtn.click();
-    }, 800);
-  };
 </script>

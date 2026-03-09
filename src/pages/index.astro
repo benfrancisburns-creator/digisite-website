@@ -1,17 +1,6 @@
 ---
-import Base from '../layouts/Base.astro';
-import Nav from '../components/Nav.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import Hero from '../components/Hero.astro';
-import Opportunity from '../components/Opportunity.astro';
-import Solution from '../components/Solution.astro';
-import HowItWorks from '../components/HowItWorks.astro';
-import Market from '../components/Market.astro';
-import Revenue from '../components/Revenue.astro';
-import Partnerships from '../components/Partnerships.astro';
-import Technology from '../components/Technology.astro';
-import Roadmap from '../components/Roadmap.astro';
-import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -36,17 +25,226 @@ const jsonLd = {
 };
 ---
 
-<Base jsonLd={jsonLd}>
-  <Nav />
+<PageLayout jsonLd={jsonLd}>
   <Hero />
-  <Opportunity />
-  <Solution />
-  <HowItWorks />
-  <Market />
-  <Revenue />
-  <Partnerships />
-  <Technology />
-  <Roadmap />
-  <Contact />
-  <Footer />
-</Base>
+
+  <!-- Key stats strip -->
+  <section class="relative bg-section">
+    <div class="rule-cyan"></div>
+    <div class="max-w-content mx-auto px-6 md:px-12 py-20 md:py-[120px]">
+
+      <p class="reveal font-mono font-semibold text-[18px] text-cyan uppercase tracking-[0.2em] text-center mb-6">
+        THE OPPORTUNITY
+      </p>
+      <h2 class="reveal font-grotesk font-bold text-off-white text-center mx-auto mb-[72px]"
+          style="font-size: clamp(22px, 3vw, 28px); max-width: 720px; letter-spacing: -0.01em; line-height: 1.3;">
+        DigiSite channels advertising budgets directly into the construction industry &mdash; creating revenue from spaces that previously had only costs attached to them.
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-[2px] reveal-stagger">
+        <div class="reveal stat-block p-8 md:p-10 border border-cyan/[0.12] rounded bg-cyan/[0.02] transition-all duration-250 hover:border-cyan/25 hover:-translate-y-0.5">
+          <span class="font-mono font-semibold text-5xl md:text-7xl text-cyan leading-none" style="letter-spacing: -0.02em;">6,235</span>
+          <p class="font-mono font-semibold text-[11px] uppercase tracking-[0.18em] text-mid-grey mt-3">SCAFFOLD BUSINESSES IN THE UK</p>
+          <p class="font-grotesk text-[16px] text-mid-grey mt-4" style="line-height: 1.65;">
+            Each one operates a forward pipeline of active sites. Every site is a potential DigiSite location.
+          </p>
+        </div>
+        <div class="reveal stat-block p-8 md:p-10 border border-cyan/[0.12] rounded bg-cyan/[0.02] transition-all duration-250 hover:border-cyan/25 hover:-translate-y-0.5">
+          <div class="flex items-end gap-3 md:gap-4 flex-wrap">
+            <span class="font-mono font-semibold text-5xl md:text-[64px] text-mid-grey leading-none">&pound;0</span>
+            <span class="font-grotesk text-3xl md:text-[40px] text-mid-grey leading-none">&rarr;</span>
+            <span class="font-mono font-semibold text-5xl md:text-[64px] text-cyan leading-none">&pound;40k</span>
+          </div>
+          <p class="font-mono font-semibold text-[10px] uppercase tracking-[0.15em] text-mid-grey mt-3">
+            WHAT A SCAFFOLD FACE EARNS TODAY &rarr; WHAT A DIGISITE PARTNER EARNS PER SCREEN*
+          </p>
+          <p class="font-grotesk text-[16px] text-mid-grey mt-4" style="line-height: 1.65;">
+            One screen. One partner. Zero upfront cost. Revenue share from day one.
+          </p>
+        </div>
+        <div class="reveal stat-block p-8 md:p-10 border border-cyan/[0.12] rounded bg-cyan/[0.02] transition-all duration-250 hover:border-cyan/25 hover:-translate-y-0.5">
+          <span class="font-mono font-semibold text-5xl md:text-7xl text-cyan leading-none" style="letter-spacing: -0.02em;">&pound;700bn+</span>
+          <p class="font-mono font-semibold text-[11px] uppercase tracking-[0.18em] text-mid-grey mt-3">UK INFRASTRUCTURE INVESTMENT COMMITTED</p>
+          <p class="font-grotesk text-[16px] text-mid-grey mt-4" style="line-height: 1.65;">
+            Government-committed capital over the next decade. Every contract builds more DigiSite inventory.
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal text-center mt-12">
+        <a href="/investment" class="text-cyan hover:text-off-white font-grotesk font-medium text-[14px] transition-colors duration-200">
+          See the full market opportunity &rarr;
+        </a>
+      </div>
+    </div>
+    <div class="rule-amber"></div>
+  </section>
+
+  <!-- Two products strip -->
+  <section class="relative bg-navy py-20 md:py-[120px]">
+    <div class="max-w-content mx-auto px-6 md:px-12">
+
+      <div class="reveal mb-16">
+        <p class="font-mono font-semibold text-[18px] text-cyan uppercase tracking-[0.2em] mb-4">TWO PRODUCTS</p>
+        <h2 class="font-grotesk font-bold text-off-white mb-5" style="font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.02em; max-width: 680px;">
+          Every construction site covered.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- DigiScaff card -->
+        <a href="/digiscaff" class="reveal group border border-cyan/[0.15] rounded-md bg-section overflow-hidden block transition-all duration-200 hover:border-cyan/30">
+          <div class="relative h-[240px] md:h-[300px] bg-navy overflow-hidden">
+            <picture>
+              <source srcset="/digiscaff-product.webp" type="image/webp" />
+              <img src="/digiscaff-product.png" alt="DigiScaff — digital LED screen mounted on construction scaffolding" width="1024" height="1024" loading="lazy" class="w-full h-full object-cover object-[center_45%]" />
+            </picture>
+          </div>
+          <div class="px-6 md:px-9 py-8">
+            <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.2em] text-cyan/60 mb-2">PRODUCT 01</p>
+            <h3 class="font-grotesk font-bold text-white text-3xl mb-2" style="letter-spacing: -0.02em;">DigiScaff</h3>
+            <p class="font-grotesk text-mid-grey text-[16px] mb-4" style="line-height: 1.5;">
+              High-brightness LED screens on construction scaffolding. 9,000 nits. 33m&sup2;. IP66.
+            </p>
+            <span class="font-grotesk font-medium text-[13px] text-cyan group-hover:text-off-white transition-colors duration-200">
+              Learn more &rarr;
+            </span>
+          </div>
+        </a>
+
+        <!-- DigiPerim card -->
+        <a href="/digiperim" class="reveal group border border-cyan/[0.15] rounded-md bg-section overflow-hidden block transition-all duration-200 hover:border-cyan/30">
+          <div class="relative h-[240px] md:h-[300px] bg-navy overflow-hidden">
+            <picture>
+              <source srcset="/digiperim-product.webp" type="image/webp" />
+              <img src="/digiperim-product.png" alt="DigiPerim — digital LED screens on perimeter hoardings" width="1536" height="1024" loading="lazy" class="w-full h-full object-cover" />
+            </picture>
+          </div>
+          <div class="px-6 md:px-9 py-8">
+            <p class="font-mono font-semibold text-[13px] uppercase tracking-[0.2em] text-cyan/60 mb-2">PRODUCT 02</p>
+            <h3 class="font-grotesk font-bold text-white text-3xl mb-2" style="letter-spacing: -0.02em;">DigiPerim</h3>
+            <p class="font-grotesk text-mid-grey text-[16px] mb-4" style="line-height: 1.5;">
+              Digital screens integrated into site perimeter hoardings. 8,000 nits. IP65. Any perimeter.
+            </p>
+            <span class="font-grotesk font-medium text-[13px] text-amber group-hover:text-off-white transition-colors duration-200">
+              Learn more &rarr;
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works summary -->
+  <section class="relative bg-section">
+    <div class="rule-cyan"></div>
+    <div class="max-w-content mx-auto px-6 md:px-12 py-20 md:py-[120px]">
+
+      <div class="reveal mb-16">
+        <p class="font-mono font-semibold text-[18px] text-cyan uppercase tracking-[0.2em] mb-4">HOW IT WORKS</p>
+        <h2 class="font-grotesk font-bold text-off-white mb-5" style="font-size: clamp(34px, 5vw, 52px); letter-spacing: -0.02em; max-width: 720px;">
+          DigiSite handles the complexity. You share the revenue.
+        </h2>
+        <p class="font-grotesk text-mid-grey text-lg" style="max-width: 640px; line-height: 1.65;">
+          From first conversation to live screen, DigiSite manages planning consent, power infrastructure, hardware installation and content management.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-stagger mb-12">
+        <div class="reveal p-8 border border-cyan/[0.12] rounded bg-cyan/[0.02]">
+          <div class="w-10 h-10 rounded-full border border-cyan/40 bg-cyan/[0.06] flex items-center justify-center mb-4">
+            <span class="font-mono font-semibold text-[14px] text-cyan">01</span>
+          </div>
+          <h4 class="font-grotesk font-bold text-[16px] text-off-white mb-2">Partnership</h4>
+          <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.65;">
+            Join the DigiSite scheme and share your forward site pipeline. DigiSite assesses each site.
+          </p>
+        </div>
+        <div class="reveal p-8 border border-cyan/[0.12] rounded bg-cyan/[0.02]">
+          <div class="w-10 h-10 rounded-full border border-cyan/40 bg-cyan/[0.06] flex items-center justify-center mb-4">
+            <span class="font-mono font-semibold text-[14px] text-cyan">02</span>
+          </div>
+          <h4 class="font-grotesk font-bold text-[16px] text-off-white mb-2">Deployment</h4>
+          <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.65;">
+            DigiSite handles planning, power, hardware and installation &mdash; coordinated with your programme.
+          </p>
+        </div>
+        <div class="reveal p-8 border border-cyan/[0.12] rounded bg-cyan/[0.02]">
+          <div class="w-10 h-10 rounded-full border border-cyan/40 bg-cyan/[0.06] flex items-center justify-center mb-4">
+            <span class="font-mono font-semibold text-[14px] text-cyan">03</span>
+          </div>
+          <h4 class="font-grotesk font-bold text-[16px] text-off-white mb-2">Revenue Share</h4>
+          <p class="font-grotesk text-[14px] text-mid-grey" style="line-height: 1.65;">
+            Monthly payments with full proof-of-play reporting. You earn without managing advertisers.
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal text-center">
+        <a href="/how-it-works" class="inline-block px-9 py-4 border border-cyan text-cyan font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:bg-cyan/10 transition-all duration-200">
+          See the Full Process &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership schemes summary -->
+  <section class="relative bg-navy py-20 md:py-[120px]">
+    <div class="max-w-content mx-auto px-6 md:px-12">
+
+      <div class="reveal mb-16">
+        <p class="font-mono font-semibold text-[18px] text-cyan uppercase tracking-[0.2em] mb-4">PARTNERSHIPS</p>
+        <h2 class="font-grotesk font-bold text-off-white mb-5" style="font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.02em; max-width: 700px;">
+          Four schemes. One for every partner type.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 reveal-stagger mb-12">
+        <a href="/partnerships" class="reveal group p-6 border border-cyan/[0.15] rounded-md bg-section hover:border-cyan/30 transition-all duration-200 block">
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-cyan mb-3">SCHEME 01</p>
+          <h4 class="font-grotesk font-bold text-[16px] text-off-white mb-2">Construction & Development</h4>
+          <p class="font-grotesk text-[13px] text-mid-grey" style="line-height: 1.6;">Scaffold companies, principal contractors, building firms.</p>
+        </a>
+        <a href="/partnerships" class="reveal group p-6 border border-cyan/[0.15] rounded-md bg-section hover:border-cyan/30 transition-all duration-200 block">
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-amber mb-3">SCHEME 02</p>
+          <h4 class="font-grotesk font-bold text-[16px] text-off-white mb-2">Landlords & Landowners</h4>
+          <p class="font-grotesk text-[13px] text-mid-grey" style="line-height: 1.6;">Vacant sites, empty buildings, heritage properties.</p>
+        </a>
+        <a href="/partnerships" class="reveal group p-6 border border-cyan/[0.15] rounded-md bg-section hover:border-cyan/30 transition-all duration-200 block">
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-cyan mb-3">SCHEME 03</p>
+          <h4 class="font-grotesk font-bold text-[16px] text-off-white mb-2">Commercial & Public</h4>
+          <p class="font-grotesk text-[13px] text-mid-grey" style="line-height: 1.6;">Retail parks, drive-thrus, local authorities, public sector.</p>
+        </a>
+        <a href="/partnerships" class="reveal group p-6 border border-cyan/[0.15] rounded-md bg-section hover:border-cyan/30 transition-all duration-200 block">
+          <p class="font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-amber mb-3">SCHEME 04</p>
+          <h4 class="font-grotesk font-bold text-[16px] text-off-white mb-2">Events</h4>
+          <p class="font-grotesk text-[13px] text-mid-grey" style="line-height: 1.6;">Festivals, sporting venues, theme parks, exhibitions.</p>
+        </a>
+      </div>
+
+      <div class="reveal text-center">
+        <a href="/partnerships" class="inline-block px-9 py-4 bg-cyan text-navy font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:shadow-[0_0_24px_rgba(0,212,255,0.35)] transition-all duration-200" style="background: #00D4FF;">
+          Explore Partnership Schemes &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="relative bg-section py-20 md:py-[120px]">
+    <div class="rule-cyan"></div>
+    <div class="max-w-content mx-auto px-6 md:px-12 text-center pt-12">
+      <p class="reveal font-grotesk font-bold text-off-white mx-auto mb-6" style="font-size: clamp(26px, 3.5vw, 36px); letter-spacing: -0.02em; max-width: 700px;">
+        The market exists. The technology is proven. The inventory category is empty.
+      </p>
+      <div class="reveal flex flex-col md:flex-row items-center justify-center gap-4">
+        <a href="/contact" class="inline-block px-9 py-4 bg-cyan text-navy font-grotesk font-semibold text-[14px] tracking-[0.04em] rounded-sm hover:shadow-[0_0_24px_rgba(0,212,255,0.35)] transition-all duration-200" style="background: #00D4FF;">
+          Start the Conversation &rarr;
+        </a>
+        <a href="/investment" class="text-mid-grey hover:text-off-white font-grotesk text-[14px] transition-colors duration-200">
+          Investment opportunity &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

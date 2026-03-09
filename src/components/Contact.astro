@@ -302,6 +302,16 @@ const schemes = [
   const conditionalSections = document.querySelectorAll('.conditional-fields');
   const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
 
+  // Auto-select scheme from URL query param (e.g. /contact?scheme=construction)
+  const urlParams = new URLSearchParams(window.location.search);
+  const preselectedScheme = urlParams.get('scheme');
+  if (preselectedScheme) {
+    const targetBtn = document.querySelector(`.scheme-btn[data-scheme="${preselectedScheme}"]`) as HTMLElement;
+    if (targetBtn) {
+      setTimeout(() => targetBtn.click(), 100);
+    }
+  }
+
   schemeButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       schemeButtons.forEach(b => {

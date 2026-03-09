@@ -1,0 +1,22 @@
+---
+import Base from './Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogType?: string;
+  ogImage?: string;
+  articleDate?: string;
+  jsonLd?: Record<string, any>;
+}
+
+const { title, description, ogType, ogImage, articleDate, jsonLd } = Astro.props;
+---
+
+<Base title={title} description={description} ogType={ogType} ogImage={ogImage} articleDate={articleDate} jsonLd={jsonLd}>
+  <Nav />
+  <slot />
+  <Footer />
+</Base>
